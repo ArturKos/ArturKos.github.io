@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+        /* Basic styling for the tabs */
+        .tab {
+            display: inline-block;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+        .tab.active {
+            border-bottom: 2px solid blue;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tabs">
+        <div class="tab active" data-tab="portfolio">Portfolio</div>
+        <div class="tab" data-tab="contact">Contact</div>
+    </div>
+
+    <div id="portfolio" class="tab-content active">
+        <h2>Portfolio</h2>
+        <p>Welcome to my portfolio! Here you can find examples of my work.</p>
+        </div>
+
+    <div id="contact" class="tab-content">
+        <h2>Contact</h2>
+        <p>Feel free to contact me using the information below:</p>
+        <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+        </div>
+
+    <script>
+        // JavaScript to handle tab switching
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Deactivate all tabs and content
+                tabs.forEach(tab => tab.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Activate the clicked tab and corresponding content
+                tab.classList.add('active');
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
