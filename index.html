@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,18 +13,34 @@
             cursor: pointer;
             border-bottom: 2px solid transparent;
         }
+
         .tab.active {
             border-bottom: 2px solid blue;
         }
+
         .tab-content {
             display: none;
             padding: 20px;
         }
+
         .tab-content.active {
             display: block;
         }
+
+        /* Styling for portfolio items */
+        .portfolio-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .portfolio-item:hover {
+            background-color: #f0f0f0;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="tabs">
@@ -34,6 +51,25 @@
     <div id="portfolio" class="tab-content active">
         <h2>Portfolio</h2>
         <p>Welcome to my portfolio! Here you can find examples of my work.</p>
+
+        <a href="project1.html">
+            <div class="portfolio-item">
+                <h3>Project 1</h3>
+                <p>Description of Project 1.</p>
+            </div>
+        </a>
+        <a href="project2.html">
+            <div class="portfolio-item">
+                <h3>Project 2</h3>
+                <p>Description of Project 2.</p>
+            </div>
+        </a>
+        <a href="project3.html">
+            <div class="portfolio-item">
+                <h3>Project 3</h3>
+                <p>Description of Project 3.</p>
+            </div>
+        </a>
         </div>
 
     <div id="contact" class="tab-content">
@@ -62,4 +98,5 @@
     </script>
 
 </body>
+
 </html>
