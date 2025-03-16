@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
+    <meta name="description" content="Welcome to Artur Kos's personal website. Discover my skills, projects, and professional experience in programming and software development.">
+    <meta name="keywords" content="Artur Kos, programming, software development, portfolio, projects, web development, JavaScript, HTML, CSS, Python, C++, Java, PHP, software engineer, GitHub, jira, gdb, threads, embeded systems, linux, windows, unix, terminal, git, svn, scrum, software development, programming, coding, software engineer">
+    <meta name="author" content="Artur Kos">
     <style>
         /* Basic styling for the tabs */
         .tab {
@@ -46,11 +49,30 @@
             flex-wrap: wrap; /* Allow items to wrap to the next line */
             gap: 20px; /* Add spacing between items */
         }
+
+        /* Styling for image zoom container */
+        .image-zoom-container {
+            position: relative;
+            width: 100%;
+            height: 15vh; /* Set height to 15% of the viewport height */
+            overflow: hidden;
+            margin: 20px auto;
+        }
+
+        .image-zoom {
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* Maintain aspect ratio and contain the image */
+            transition: transform 10s ease; /* Slow down the transition */
+        }
     </style>
 </head>
 
 <body>
-    <img src="img/main.jpg" style="width: auto; height: 15vh;" alt="Progremming Programmer engineer C C++ Java PHP Python HTML CSS PASAL">
+    <div class="image-zoom-container">
+        <img src="img/main.jpg" class="image-zoom" alt="Programming Programmer engineer C C++ Java PHP Python HTML CSS PASCAL">
+    </div>    
+    
     <div class="tabs">
         <div class="tab active" data-tab="portfolio">Portfolio</div>
         <div class="tab" data-tab="contact">Contact</div>
@@ -106,6 +128,22 @@
                 document.getElementById(tabId).classList.add('active');
             });
         });
+
+        // JavaScript to handle automatic image pan
+        const imageZoom = document.querySelector('.image-zoom');
+        let position = 0;
+        let direction = -1;
+
+        function panImage() {
+            position += direction * 0.1; // Adjust the speed of panning
+            if (position >= 15 || position <= -100) { // Adjust the range of panning
+                direction *= -1;
+            }
+            imageZoom.style.transform = `translateY(${position}%)`;
+            requestAnimationFrame(panImage);
+        }
+
+        panImage();
     </script>
 
 </body>
