@@ -5,130 +5,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artur Kos portfolio</title>
-    <meta name="description" content="Welcome to Artur Kos's personal website. Discover my skills, projects, and professional experience in programming and software development.">
-    <meta name="keywords" content="Artur Kos, programming, software development, portfolio, projects, web development, JavaScript, HTML, CSS, Python, C++, Java, PHP, software engineer, GitHub, jira, gdb, threads, embeded systems, linux, windows, unix, terminal, git, svn, scrum, software development, programming, coding, software engineer">
+    <meta name="description"
+        content="Welcome to Artur Kos's personal website. Discover my skills, projects, and professional experience in programming and software development.">
+    <meta name="keywords"
+        content="Artur Kos, programming, software development, portfolio, projects, web development, JavaScript, HTML, CSS, Python, C++, Java, PHP, software engineer, GitHub, jira, gdb, threads, embeded systems, linux, windows, unix, terminal, git, svn, scrum, software development, programming, coding, software engineer">
     <meta name="author" content="Artur Kos">
-    <style>
-        /* Basic styling for the tabs */
-        .tab {
-            display: inline-block;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-        }
-
-        .tab.active {
-            border-bottom: 2px solid blue;
-        }
-
-        .tab-content {
-            display: none;
-            padding: 20px;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        /* Styling for portfolio items */
-        .portfolio-item {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            width: 300px; /* Set a fixed width for each item */
-        }
-
-        .portfolio-item:hover {
-            background-color: #f0f0f0;
-        }
-
-        /* Flexbox container for portfolio items */
-        .portfolio-container {
-            display: flex;
-            flex-wrap: wrap; /* Allow items to wrap to the next line */
-            gap: 20px; /* Add spacing between items */
-        }
-
-        /* Styling for image zoom container */
-        .image-zoom-container {
-            position: relative;
-            width: 100%;
-            height: 15vh; /* Set height to 15% of the viewport height */
-            overflow: hidden;
-            margin: 20px auto;
-        }
-
-        .image-zoom {
-            width: 100%;
-            height: auto;
-            object-fit: contain; /* Maintain aspect ratio and contain the image */
-            transition: transform 10s ease; /* Slow down the transition */
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
     <div class="image-zoom-container">
-        <img src="img/main.jpg" class="image-zoom" alt="Programming Programmer engineer C C++ Java PHP Python HTML CSS PASCAL">
-    </div>    
-    
+        <img src="img/main.jpg" class="image-zoom"
+            alt="Programming Programmer engineer C C++ Java PHP Python HTML CSS PASCAL">
+    </div>
+
     <div class="tabs">
-        <div class="tab active" data-tab="portfolio">Portfolio</div>
-        <div class="tab" data-tab="contact">Contact</div>
+        <div class="tab active" data-tab="portfolio">
+            <div class="text-container">
+                <h2>Portfolio</h2>
+            </div>
+        </div>
+        <div class="tab" data-tab="contact">
+            <div class="text-container">
+                <h2>Contact</h2>
+            </div>
+        </div>
     </div>
 
     <div id="portfolio" class="tab-content active">
-        <h2>Portfolio</h2>
-        <p>Welcome to my portfolio! Here you can find examples of my work.</p>
+        <div class="text-container">
+            <div class="text-overlay"></div>
+            <p>Welcome to my portfolio! Here you can find examples of my work.</p>
+        </div>
 
         <div class="portfolio-container">
-            <a href="projects/cpu-usage-tracker/pthread-programming-linux-gcc-c-programming-multithread.html">
+            <a href="projects/cpu-usage-tracker/pthread-programming-linux-gcc-c-programming-multithread.html"
+                class="no-underline">
                 <div class="portfolio-item">
                     <h3>Cpu Usage Tracker</h3>
                     <p>Implementation tracking CPU load in linux systems</p>
                 </div>
             </a>
-            <a href="projects/arkanoid-game/cpp-multithread-programming-vector-allegro5-linux-windows.html">
+            <a href="projects/arkanoid-game/cpp-multithread-programming-vector-allegro5-linux-windows.html"
+                class="no-underline">
                 <div class="portfolio-item">
                     <h3>Arkanoid Game</h3>
                     <p>Simple Arkanoid Game</p>
                 </div>
             </a>
         </div>
-        <h3>GitHub repository</h3>
-        <ul>
-            <li><a href="https://github.com/ArturKos">All projects</a></li>
-            <li><a href="https://github.com/ArturKos/ArturKos.github.io">This Web Page</a></li>
-            <li><a href="https://github.com/ArturKos/BigNumber">C++ library implementing big numbers with Google Test framework</a></li>
-            <li><a href="https://github.com/ArturKos/RelayBoard">Program to control relay board, Linux and Windows solutions</a></li>
-            <li><a href="https://github.com/ArturKos/Stacja-meteo">Weather station, several technologies used</a></li>
-            <li><a href="https://github.com/ArturKos/cpu_usage_tracker">CPU usage tracker, Linux command line tool</a></li>
-            <li><a href="https://github.com/ArturKos/puzzle">Puzzle Game implementation in Windows OS</a></li>
-            <li><a href="https://github.com/ArturKos/arkanoid">Arkanoid game implementation</a></li>
-            <li><a href="https://github.com/ArturKos/Steganografia">Steganography implementation program</a></li>
-            <li><a href="https://github.com/ArturKos/SerwerHTTP">Simple HTTP server</a></li>
-            <li><a href="https://github.com/ArturKos/Intive-PATRONAGE-2020-Szczecin-Projekt-0">Project 0 for Intive Patronage in Embedded Systems</a></li>
-            <li><a href="https://github.com/ArturKos/Intive-PARONAGE-2018-Szczecin-Projekt-0">Project 0 for Intive Patronage in Java</a></li>
-            <li><a href="https://github.com/ArturKos/poweroff">Windows program to shout down system</a></li>
-            <li><a href="https://github.com/ArturKos/modplay">Delphi component for bass.dll library</a></li>
-            <li><a href="https://github.com/ArturKos/b64decode">Windows program implementing base64</a></li>
-            <li><a href="https://github.com/ArturKos/MnozenieMacierzy">Linux program for matrix multiplication</a></li>
-            <li><a href="https://github.com/ArturKos/EmailNotifier">Linux command line program for email notification</a></li>
-            <li><a href="https://github.com/ArturKos/FTPmirror">Linux command line program to download via FTP protocol</a></li>
-            <li><a href="https://github.com/ArturKos/GetEmailsAttachement">Linux command line program downloading email attachements</a></li>
-            <li><a href="https://github.com/ArturKos/S-ownik">Windows program for words and anagram generator</a></li>
-            <li><a href="https://github.com/ArturKos/Lotto">Windows program for LOTTO</a></li>
-            <li><a href="https://github.com/ArturKos/Gallery">PHP gallery</a></li>
-            <li><a href="https://github.com/ArturKos/Thumbgen">Windows thumbs generator</a></li>
-            <li><a href="https://github.com/ArturKos/Nieznany-numer">Andoid app</a></li>
-        </ul>
+        <div class="text-container">
+            <div class="text-overlay"></div>
+            <h3>GitHub repository</h3>
+            <ul>
+                <li><a href="https://github.com/ArturKos">All projects</a></li>
+                <li><a href="https://github.com/ArturKos/ArturKos.github.io">This Web Page</a></li>
+                <li><a href="https://github.com/ArturKos/BigNumber">C++ library implementing big numbers with Google
+                        Test framework</a></li>
+                <li><a href="https://github.com/ArturKos/RelayBoard">Program to control relay board, Linux and Windows
+                        solutions</a></li>
+                <li><a href="https://github.com/ArturKos/Stacja-meteo">Weather station, several technologies used</a>
+                </li>
+                <li><a href="https://github.com/ArturKos/cpu_usage_tracker">CPU usage tracker, Linux command line
+                        tool</a></li>
+                <li><a href="https://github.com/ArturKos/puzzle">Puzzle Game implementation in Windows OS</a></li>
+                <li><a href="https://github.com/ArturKos/arkanoid">Arkanoid game implementation</a></li>
+                <li><a href="https://github.com/ArturKos/Steganografia">Steganography implementation program</a></li>
+                <li><a href="https://github.com/ArturKos/SerwerHTTP">Simple HTTP server</a></li>
+                <li><a href="https://github.com/ArturKos/Intive-PATRONAGE-2020-Szczecin-Projekt-0">Project 0 for Intive
+                        Patronage in Embedded Systems</a></li>
+                <li><a href="https://github.com/ArturKos/Intive-PARONAGE-2018-Szczecin-Projekt-0">Project 0 for Intive
+                        Patronage in Java</a></li>
+                <li><a href="https://github.com/ArturKos/poweroff">Windows program to shout down system</a></li>
+                <li><a href="https://github.com/ArturKos/modplay">Delphi component for bass.dll library</a></li>
+                <li><a href="https://github.com/ArturKos/b64decode">Windows program implementing base64</a></li>
+                <li><a href="https://github.com/ArturKos/MnozenieMacierzy">Linux program for matrix multiplication</a>
+                </li>
+                <li><a href="https://github.com/ArturKos/EmailNotifier">Linux command line program for email
+                        notification</a></li>
+                <li><a href="https://github.com/ArturKos/FTPmirror">Linux command line program to download via FTP
+                        protocol</a></li>
+                <li><a href="https://github.com/ArturKos/GetEmailsAttachement">Linux command line program downloading
+                        email attachements</a></li>
+                <li><a href="https://github.com/ArturKos/S-ownik">Windows program for words and anagram generator</a>
+                </li>
+                <li><a href="https://github.com/ArturKos/Lotto">Windows program for LOTTO</a></li>
+                <li><a href="https://github.com/ArturKos/Gallery">PHP gallery</a></li>
+                <li><a href="https://github.com/ArturKos/Thumbgen">Windows thumbs generator</a></li>
+                <li><a href="https://github.com/ArturKos/Nieznany-numer">Andoid app</a></li>
+            </ul>
+        </div>
     </div>
 
     <div id="contact" class="tab-content">
-        <h2>Contact</h2>
-        <p>Feel free to contact me using the information below:</p>
-        <p>Email: <a href="mailto:Artur.Kos.software.developer@gmail.com">Artur.Kos.software.developer@gmail.com</a></p>
+        <div class="text-container">
+            <div class="text-overlay"></div>
+            <h2>Contact</h2>
+            <p>Feel free to contact me using the information below:</p>
+            <p>Email: <a href="mailto:Artur.Kos.software.developer@gmail.com">Artur.Kos.software.developer@gmail.com</a>
+            </p>
+        </div>
     </div>
 
     <script>
