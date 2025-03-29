@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Station</title>
+    <meta name="description"
+        content="A weather station project that measures temperature and humidity indoors and outdoors using ESP8266, Raspberry Pi, and sensors like DHT11 and DHT22. Includes data visualization on a website, an Android app, and a Windows 10 widget.">
+    <meta name="keywords"
+        content="weather station, ESP8266, Raspberry Pi, DHT11, DHT22, temperature monitoring, humidity monitoring, IoT, smart home, Android app, Windows 10 widget, PHP, Rainmeter, data visualization, MQTT, Arduino, MySQL">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <style>
+        /* Center elements horizontally */
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Styling for links */
+        a {
+            color: rgb(26, 112, 241);
+            /* Link color */
+            text-decoration: none;
+            /* Remove underline */
+            font-weight: bold;
+            /* Make text bold */
+        }
+
+        /* Styling for links on hover */
+        a:hover {
+            text-decoration: underline;
+            /* Add underline on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="text-container">
+        <h1>Weather station</h1>
+    </div>
+    <!-- Image gallery -->
+    <div class="image-container">
+        <img src="img/android-app-client-weather-station.png"
+            alt="Android app client interface for the weather station project" class="center">
+        <img src="img/website-weather-station-php-look.png"
+            alt="Website interface for the weather station project developed in PHP" class="center">
+        <img src="img/widget-windows10-rainmeter.png" alt="Windows 10 Rainmeter widget displaying weather station data"
+            class="center">
+    </div>
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <p>
+            Weather Station is a project that measures temperature and humidity both indoors and outdoors. The project
+            is based on an article published by user r.blaszczak on majsterkowo.pl, with modifications made according to
+            personal ideas. <br><br>
+
+            <strong>Project assumptions:</strong><br>
+            – Measurement of temperature and humidity indoors and outdoors<br>
+            – Saving measurements on a local server<br>
+            – Displaying the latest measurement and history in the form of a chart on a website<br>
+            – Building an application for the Android system<br>
+            – Displaying the latest measurement as a widget for Windows 10<br>
+            The station is powered from the electrical grid, unlike the one described in the article. Wires from a
+            network cable
+            (so-called "twisted pair") of approximately 2 meters in length are used to connect the sensors to the
+            ESP8266. <br><br>
+
+            <strong>Components used:</strong><br>
+            – Raspberry Pi 4 (with 4 GiB RAM)<br>
+            – ESP8266<br>
+            – DHT11 temperature and humidity sensor<br>
+            – DHT22 temperature and humidity sensor<br>
+        </p>
+        <!-- Link to the GitHub repository -->
+        <p>Check out the project on GitHub: <a href="https://github.com/ArturKos/Stacja-meteo" target="_blank">Weather
+                station on GitHub</a></p>
+        <!-- Link back to the portfolio -->
+        <a href="../../index.html" class="back-to-portfolio">Back to Portfolio</a>
+    </div>
+</body>
+
+</html>

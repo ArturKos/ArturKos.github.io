@@ -1,14 +1,14 @@
 body {
     background-image: url('../img/background.jpeg');
-    /* Ścieżka do obrazu tła */
+    /* Path to the background image */
     background-size: cover;
-    /* Dopasowanie obrazu do całej strony */
+    /* Scale the image to cover the entire page */
     background-position: center;
-    /* Wyśrodkowanie obrazu */
+    /* Center the background image */
     background-attachment: fixed;
-    /* Ustawienie tła jako nieruchome */
+    /* Keep the background fixed while scrolling */
     background-repeat: no-repeat;
-    /* Zapobieganie powtarzaniu obrazu */
+    /* Prevent the background from repeating */
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -16,7 +16,7 @@ body {
 
 .text-container {
     position: relative;
-    /* Ważne dla nakładki */
+    /* Important for overlay positioning */
     color: white;
     padding: 20px;
     margin: 20px auto;
@@ -31,9 +31,9 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    /* Półprzezroczysty czarny */
+    /* Semi-transparent black overlay */
     z-index: -1;
-    /* Umieszczenie nakładki za tekstem */
+    /* Place the overlay behind the text */
 }
 
 .tab {
@@ -45,6 +45,7 @@ body {
 
 .tab.active {
     border-bottom: 2px solid blue;
+    /* Highlight active tab */
 }
 
 .tab-content {
@@ -54,6 +55,7 @@ body {
 
 .tab-content.active {
     display: block;
+    /* Show active tab content */
 }
 
 .portfolio-item {
@@ -63,18 +65,22 @@ body {
     cursor: pointer;
     width: 300px;
     background-color: rgba(31, 98, 161, 0.349);
+    /* Semi-transparent blue background */
     color: white;
     text-decoration: none;
 }
 
 .portfolio-item:hover {
     background-color: rgba(17, 73, 146, 0.582);
+    /* Darker blue on hover */
 }
 
 .portfolio-container {
     display: flex;
     flex-wrap: wrap;
+    /* Allow items to wrap to the next row */
     gap: 20px;
+    /* Space between items */
 }
 
 /* Styling for image zoom container */
@@ -98,53 +104,53 @@ body {
 
 .text-container ul {
     list-style-type: disc;
-    /* Typ punktora (możesz zmienić na circle, square itp.) */
+    /* Bullet point style */
     padding-left: 20px;
-    /* Wcięcie dla listy */
+    /* Indentation for the list */
     margin-top: 10px;
 }
 
 .text-container ul li {
     margin-bottom: 5px;
-    /* Odstęp między elementami listy */
+    /* Space between list items */
 }
 
 .text-container ul li a {
     color: white;
-    /* Kolor linków */
+    /* Link color */
     text-decoration: none;
-    /* Usunięcie podkreślenia */
+    /* Remove underline */
 }
 
 .text-container ul li a:hover {
     text-decoration: underline;
-    /* Podkreślenie linku po najechaniu */
+    /* Add underline on hover */
 }
 
 #contact a {
     color: white;
-    /* Ustaw kolor tekstu na biały */
+    /* Set text color to white */
     text-decoration: none;
-    /* Usuń podkreślenie */
+    /* Remove underline */
 }
 
 #contact a:hover {
     text-decoration: underline;
-    /* Opcjonalnie: podkreślenie przy najechaniu */
+    /* Add underline on hover */
 }
 
 .text-container h2 {
     color: white;
-    /* Kolor tekstu */
+    /* Text color */
     font-weight: bold;
-    /* Pogrubienie tekstu */
+    /* Bold text */
 }
 
 .text-container h1 {
     color: white;
-    /* Kolor tekstu */
+    /* Text color */
     font-weight: bold;
-    /* Pogrubienie tekstu */
+    /* Bold text */
 }
 
 .back-to-portfolio {
@@ -152,109 +158,159 @@ body {
     padding: 10px 20px;
     margin-top: 20px;
     background-color: #1e90ff;
-    /* Niebieski kolor przycisku */
+    /* Blue button color */
     color: white;
-    /* Kolor tekstu */
+    /* Text color */
     text-decoration: none;
-    /* Usuń podkreślenie */
+    /* Remove underline */
     font-weight: bold;
-    /* Pogrubienie tekstu */
+    /* Bold text */
     border-radius: 5px;
-    /* Zaokrąglone rogi */
+    /* Rounded corners */
     transition: background-color 0.3s ease;
-    /* Animacja zmiany koloru */
+    /* Smooth color transition */
 }
 
 .back-to-portfolio:hover {
     background-color: #104e8b;
-    /* Ciemniejszy niebieski przy najechaniu */
+    /* Darker blue on hover */
 }
 
 .no-underline {
     text-decoration: none;
-    /* Usuń podkreślenie */
+    /* Remove underline */
 }
 
 .no-underline:hover {
     transform: scale(1.1);
-    /* Powiększenie o 10% */
+    /* Scale up by 10% */
     transition: transform 0.3s ease;
-    /* Płynna animacja */
+    /* Smooth scaling animation */
     opacity: 0.8;
-    /* Zmniejszenie przezroczystości */
+    /* Reduce opacity */
     font-weight: bold;
-    /* Pogrubienie tekstu */
+    /* Bold text */
 }
 
 .center {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    max-width: 20%; /* Obrazy zajmą maksymalnie 20% szerokości kontenera */
-    height: auto; /* Automatyczne dostosowanie wysokości, aby zachować proporcje */
-    border: 1px solid #ccc; /* Opcjonalnie: dodanie obramowania */
-    border-radius: 5px; /* Opcjonalnie: zaokrąglenie rogów */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Opcjonalnie: cień dla obrazów */
-    object-fit: contain; /* Zachowanie proporcji obrazu */
+    max-width: 20%;
+    /* Images will take up to 20% of the container's width */
+    height: auto;
+    /* Maintain aspect ratio */
+    border: 1px solid #ccc;
+    /* Optional: Add border */
+    border-radius: 5px;
+    /* Optional: Round corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Optional: Add shadow */
+    object-fit: contain;
+    /* Maintain image proportions */
 }
 
 .image-container {
-    display: flex; /* Ustawienie flexboxa */
-    flex-wrap: wrap; /* Pozwól obrazom zawijać się do nowego wiersza */
-    gap: 20px; /* Odstęp między obrazami */
-    justify-content: center; /* Wyśrodkowanie obrazów w poziomie */
+    display: flex;
+    /* Use flexbox for layout */
+    flex-wrap: wrap;
+    /* Allow images to wrap to the next row */
+    gap: 20px;
+    /* Space between images */
+    justify-content: center;
+    /* Center images horizontally */
 }
 
 .linkedin-link {
     display: inline-flex;
     align-items: center;
-    text-decoration: none; /* Usuń podkreślenie */
-    color: #0077b5; /* Kolor LinkedIn */
+    text-decoration: none;
+    /* Remove underline */
+    color: #0077b5;
+    /* LinkedIn blue color */
     font-weight: bold;
 }
 
 .linkedin-link:hover {
-    text-decoration: underline; /* Podkreślenie przy najechaniu */
+    text-decoration: underline;
+    /* Add underline on hover */
 }
 
 .linkedin-logo {
-    width: 20px; /* Szerokość logo */
-    height: 20px; /* Wysokość logo */
-    margin-right: 8px; /* Odstęp między logo a tekstem */
+    width: 20px;
+    /* Logo width */
+    height: 20px;
+    /* Logo height */
+    margin-right: 8px;
+    /* Space between logo and text */
 }
 
 .github-link {
     display: inline-flex;
     align-items: center;
-    text-decoration: none; /* Usuń podkreślenie */
-    color: #333; /* Kolor GitHub */
+    text-decoration: none;
+    /* Remove underline */
+    color: #333;
+    /* GitHub color */
     font-weight: bold;
 }
 
 .github-link:hover {
-    text-decoration: underline; /* Podkreślenie przy najechaniu */
+    text-decoration: underline;
+    /* Add underline on hover */
 }
 
 .github-logo {
-    width: 20px; /* Szerokość logo */
-    height: 20px; /* Wysokość logo */
-    margin-right: 8px; /* Odstęp między logo a tekstem */
+    width: 20px;
+    /* Logo width */
+    height: 20px;
+    /* Logo height */
+    margin-right: 8px;
+    /* Space between logo and text */
 }
 
 .email-link {
     display: inline-flex;
     align-items: center;
-    text-decoration: none; /* Usuń podkreślenie */
-    color: #0077b5; /* Kolor LinkedIn */
+    text-decoration: none;
+    /* Remove underline */
+    color: #0077b5;
+    /* LinkedIn color */
     font-weight: bold;
+    /* Make text bold */
 }
 
 .email-link:hover {
-    text-decoration: underline; /* Podkreślenie przy najechaniu */
+    text-decoration: underline;
+    /* Add underline on hover */
 }
 
 .email-logo {
-    width: 20px; /* Szerokość logo */
-    height: 20px; /* Wysokość logo */
-    margin-right: 8px; /* Odstęp między logo a tekstem */
+    width: 20px;
+    /* Logo width */
+    height: 20px;
+    /* Logo height */
+    margin-right: 8px;
+    /* Space between logo and text */
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    /* Center video horizontally */
+    margin: 20px 0;
+    /* Add vertical margin */
+}
+
+video {
+    max-width: 20%;
+    /* Video will take up to 20% of the container's width */
+    height: auto;
+    /* Maintain aspect ratio */
+    border: 1px solid #ccc;
+    /* Optional: Add border */
+    border-radius: 5px;
+    /* Optional: Round corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Optional: Add shadow */
 }
