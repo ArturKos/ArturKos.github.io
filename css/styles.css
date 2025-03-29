@@ -185,3 +185,76 @@ body {
     font-weight: bold;
     /* Pogrubienie tekstu */
 }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 20%; /* Obrazy zajmą maksymalnie 20% szerokości kontenera */
+    height: auto; /* Automatyczne dostosowanie wysokości, aby zachować proporcje */
+    border: 1px solid #ccc; /* Opcjonalnie: dodanie obramowania */
+    border-radius: 5px; /* Opcjonalnie: zaokrąglenie rogów */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Opcjonalnie: cień dla obrazów */
+    object-fit: contain; /* Zachowanie proporcji obrazu */
+}
+
+.image-container {
+    display: flex; /* Ustawienie flexboxa */
+    flex-wrap: wrap; /* Pozwól obrazom zawijać się do nowego wiersza */
+    gap: 20px; /* Odstęp między obrazami */
+    justify-content: center; /* Wyśrodkowanie obrazów w poziomie */
+}
+
+.linkedin-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none; /* Usuń podkreślenie */
+    color: #0077b5; /* Kolor LinkedIn */
+    font-weight: bold;
+}
+
+.linkedin-link:hover {
+    text-decoration: underline; /* Podkreślenie przy najechaniu */
+}
+
+.linkedin-logo {
+    width: 20px; /* Szerokość logo */
+    height: 20px; /* Wysokość logo */
+    margin-right: 8px; /* Odstęp między logo a tekstem */
+}
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none; /* Usuń podkreślenie */
+    color: #333; /* Kolor GitHub */
+    font-weight: bold;
+}
+
+.github-link:hover {
+    text-decoration: underline; /* Podkreślenie przy najechaniu */
+}
+
+.github-logo {
+    width: 20px; /* Szerokość logo */
+    height: 20px; /* Wysokość logo */
+    margin-right: 8px; /* Odstęp między logo a tekstem */
+}
+
+.email-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none; /* Usuń podkreślenie */
+    color: #0077b5; /* Kolor LinkedIn */
+    font-weight: bold;
+}
+
+.email-link:hover {
+    text-decoration: underline; /* Podkreślenie przy najechaniu */
+}
+
+.email-logo {
+    width: 20px; /* Szerokość logo */
+    height: 20px; /* Wysokość logo */
+    margin-right: 8px; /* Odstęp między logo a tekstem */
+}
