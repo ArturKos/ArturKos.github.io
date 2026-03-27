@@ -4,105 +4,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artur Kos portfolio</title>
+    <title>Artur Kos — Software Developer Portfolio</title>
     <meta name="description"
-        content="Welcome to Artur Kos's personal website. Discover my skills, projects, and professional experience in programming and software development.">
+        content="Artur Kos — software developer specializing in systems programming, embedded IoT, and game development. C/C++, Python, PHP, ESP8266, Linux.">
     <meta name="keywords"
-        content="Artur Kos, programming, software development, portfolio, projects, web development, JavaScript, HTML, CSS, Python, C++, Java, PHP, software engineer, GitHub, jira, gdb, threads, embeded systems, linux, windows, unix, terminal, git, svn, scrum, software development, programming, coding, software engineer">
+        content="Artur Kos, software developer, C, C++, embedded systems, IoT, ESP8266, Linux, game development, PHP, Python, Java, portfolio">
     <meta name="author" content="Artur Kos">
+    <link rel="canonical" href="https://arturkos.github.io/">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Artur Kos — Software Developer Portfolio">
+    <meta property="og:description" content="Systems programming, embedded IoT, and game development projects in C/C++, Python, PHP, and more.">
+    <meta property="og:url" content="https://arturkos.github.io/">
+    <meta property="og:image" content="https://arturkos.github.io/img/main.jpg">
+    <meta property="og:site_name" content="Artur Kos Portfolio">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Artur Kos — Software Developer Portfolio">
+    <meta name="twitter:description" content="Systems programming, embedded IoT, and game development projects in C/C++, Python, PHP, and more.">
+    <meta name="twitter:image" content="https://arturkos.github.io/img/main.jpg">
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Artur Kos",
+        "url": "https://arturkos.github.io",
+        "email": "Artur.Kos.software.developer@gmail.com",
+        "jobTitle": "Software Developer",
+        "sameAs": ["https://github.com/ArturKos"],
+        "knowsAbout": ["C", "C++", "Embedded Systems", "IoT", "Linux", "PHP", "Python", "Game Development"]
+    }
+    </script>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-    <div class="image-zoom-container">
-        <img src="img/main.jpg" class="image-zoom"
-            alt="Programming Programmer engineer C C++ Java PHP Python HTML CSS PASCAL">
-    </div>
-
-    <div class="tabs">
-        <div class="tab active" data-tab="portfolio">
-            <div class="text-container">
-                <h2>Portfolio</h2>
-            </div>
+    <header>
+        <div class="image-zoom-container">
+            <img src="img/main.jpg" class="image-zoom"
+                alt="Artur Kos software developer workspace with code on screen">
         </div>
-        <div class="tab" data-tab="contact">
-            <div class="text-container">
-                <h2>Contact</h2>
-            </div>
-        </div>
-    </div>
+        <h1 class="sr-only">Artur Kos — Software Developer Portfolio</h1>
+    </header>
 
-    <div id="portfolio" class="tab-content active">
+    <nav class="tabs" role="tablist" aria-label="Portfolio sections">
+        <button class="tab active" data-tab="portfolio" role="tab" aria-selected="true" aria-controls="portfolio">
+            <span class="tab-label">Portfolio</span>
+        </button>
+        <button class="tab" data-tab="contact" role="tab" aria-selected="false" aria-controls="contact">
+            <span class="tab-label">Contact</span>
+        </button>
+    </nav>
+
+    <div id="portfolio" class="tab-content active" role="tabpanel" aria-labelledby="portfolio-tab">
         <div class="text-container">
             <div class="text-overlay"></div>
             <h2>Portfolio</h2>
-            <p>Welcome to my portfolio! Here you can find examples of my work.</p>
+            <p>Software developer with experience in systems programming, embedded IoT, and game development. Explore my featured projects below or browse the full list of repositories.</p>
+        </div>
+
+        <div class="filter-bar" role="group" aria-label="Filter projects by technology">
+            <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-btn" data-filter="c" aria-pressed="false">C</button>
+            <button class="filter-btn" data-filter="cpp" aria-pressed="false">C++</button>
+            <button class="filter-btn" data-filter="embedded" aria-pressed="false">Embedded</button>
+            <button class="filter-btn" data-filter="iot" aria-pressed="false">IoT</button>
+            <button class="filter-btn" data-filter="game" aria-pressed="false">Game</button>
+            <button class="filter-btn" data-filter="linux" aria-pressed="false">Linux</button>
         </div>
 
         <div class="portfolio-container">
             <a href="projects/CHIP-8-emulator/processor-emulation-CHIP-8-programming-linux-gcc-c-programming-allegro5.html"
-                class="no-underline">
-                <div class="portfolio-item">
+                class="no-underline portfolio-link" data-tags="c cpp linux">
+                <div class="portfolio-item scroll-reveal">
+                    <div class="portfolio-tags"><span>C</span><span>C++</span><span>Linux</span></div>
                     <h3>CHIP-8 Emulator</h3>
-                    <p>CHIP-8 emulator in C/C++ with Allegro5 for graphics. Run classic CHIP-8 games on
-                        Linux.</p>
+                    <p>Faithful CHIP-8 processor emulator in C/C++ with Allegro5 for graphics, sound, and input. Interprets opcodes, manages memory, display, and timers to run classic retro ROMs.</p>
                 </div>
             </a>
             <a href="projects/cpu-usage-tracker/pthread-programming-linux-gcc-c-programming-multithread.html"
-                class="no-underline">
-                <div class="portfolio-item">
-                    <h3>Cpu Usage Tracker</h3>
-                    <p>Implementation tracking CPU load in linux systems</p>
+                class="no-underline portfolio-link" data-tags="c linux">
+                <div class="portfolio-item scroll-reveal">
+                    <div class="portfolio-tags"><span>C</span><span>Linux</span></div>
+                    <h3>CPU Usage Tracker</h3>
+                    <p>Multithreaded console tool monitoring individual CPU cores via /proc/stat. Uses pthreads with mutex synchronization. Valgrind-verified with zero memory leaks.</p>
                 </div>
             </a>
             <a href="projects/weather-station/mqtt-programming-c-esp8266-windows-c-php-arduino-rainmeter-mysql-android-app-smart-home.html"
-                class="no-underline">
-                <div class="portfolio-item">
-                    <h3>Weather station</h3>
-                    <p>Weather station based on ESP8266, Raspberry Pi, PHP+MySQL.</p>
+                class="no-underline portfolio-link" data-tags="c embedded iot">
+                <div class="portfolio-item scroll-reveal">
+                    <div class="portfolio-tags"><span>C</span><span>Embedded</span><span>IoT</span></div>
+                    <h3>Weather Station</h3>
+                    <p>IoT system monitoring indoor/outdoor temperature and humidity. ESP8266 with DHT11/DHT22 sensors, Raspberry Pi 4 server, PHP+MySQL backend, web dashboard, Android app, and Windows 10 widget.</p>
                 </div>
             </a>
             <a href="projects/temperature-sensor/mqtt-programming-c-esp8266-intive-patronage-2020-embedded-smart-home.html"
-                class="no-underline">
-                <div class="portfolio-item">
-                    <h3>Temperature sensor</h3>
-                    <p>Implementation of digital and analog temperature sensor during Intive Patronage in embedded
-                        systems</p>
+                class="no-underline portfolio-link" data-tags="c embedded iot">
+                <div class="portfolio-item scroll-reveal">
+                    <div class="portfolio-tags"><span>C</span><span>Embedded</span><span>IoT</span></div>
+                    <h3>Temperature Sensor</h3>
+                    <p>ESP8266 library for analog and digital temperature sensors with MQTT real-time data transmission. Developed during Intive Patronage 2020 embedded systems program.</p>
                 </div>
             </a>
             <a href="projects/led-controller-rgb/mqtt-programming-c-esp8266-intive-patronage-2020-embedded-smart-home.html"
-                class="no-underline">
-                <div class="portfolio-item">
-                    <h3>LED controller</h3>
-                    <p>Implementation of LED controller during Intive Patronage in embedded
-                        systems</p>
+                class="no-underline portfolio-link" data-tags="c embedded iot">
+                <div class="portfolio-item scroll-reveal">
+                    <div class="portfolio-tags"><span>C</span><span>Embedded</span><span>IoT</span></div>
+                    <h3>LED Controller RGB</h3>
+                    <p>RGB LED strip controller on ESP8266 with HSV-to-RGB color conversion and MQTT integration. Supports custom lighting effects and brightness control. Built during Intive Patronage 2020.</p>
                 </div>
             </a>
             <a href="projects/arkanoid-game/cpp-multithread-programming-vector-allegro5-linux-windows.html"
-                class="no-underline">
-                <div class="portfolio-item">
+                class="no-underline portfolio-link" data-tags="cpp linux game">
+                <div class="portfolio-item scroll-reveal">
+                    <div class="portfolio-tags"><span>C++</span><span>Linux</span><span>Game</span></div>
                     <h3>Arkanoid Game</h3>
-                    <p>Simple Arkanoid Game</p>
+                    <p>Classic Arkanoid built in C++ with Allegro5. Features multiple levels, power-ups, and a scoring system. Demonstrates OOP principles and real-time graphics rendering.</p>
                 </div>
             </a>
-            <a href="projects/puzzle-game/cpp-borland-builder-programming-game-windows-gdi.html" class="no-underline">
-                <div class="portfolio-item">
+            <a href="projects/puzzle-game/cpp-borland-builder-programming-game-windows-gdi.html"
+                class="no-underline portfolio-link" data-tags="cpp game">
+                <div class="portfolio-item scroll-reveal">
+                    <div class="portfolio-tags"><span>C++</span><span>Game</span></div>
                     <h3>Puzzle Game</h3>
-                    <p>Implementation of puzzle game</p>
+                    <p>Windows puzzle game developed in C++ Builder 6.0 as an engineering thesis project. Features GUI with GDI graphics rendering.</p>
                 </div>
             </a>
-            <a href="projects/cpp-big-number-library/linux-gpp-library-big-number.html" class="no-underline">
-                <div class="portfolio-item">
-                    <h3>BigNumber library</h3>
-                    <p>Implementation of numbers greater than 64 bits, using Google Test framework for testing</p>
+            <a href="projects/cpp-big-number-library/linux-gpp-library-big-number.html"
+                class="no-underline portfolio-link" data-tags="cpp linux">
+                <div class="portfolio-item scroll-reveal">
+                    <div class="portfolio-tags"><span>C++</span><span>Linux</span></div>
+                    <h3>BigNumber Library</h3>
+                    <p>Arbitrary-precision arithmetic library using linked lists. Supports addition, subtraction, multiplication, division with binary/hex/decimal display. 43 unit tests via GoogleTest, zero memory leaks confirmed by Valgrind.</p>
                 </div>
             </a>
             <a href="projects/relayboard-controller/programming-c-relay-board-linux-windows-os.html"
-                class="no-underline">
-                <div class="portfolio-item">
-                    <h3>Relay Board Controller
-                    </h3>
-                    <p>Linux and Windows implementation to controll 8-relay.</p>
+                class="no-underline portfolio-link" data-tags="c linux">
+                <div class="portfolio-item scroll-reveal">
+                    <div class="portfolio-tags"><span>C</span><span>Linux</span></div>
+                    <h3>Relay Board Controller</h3>
+                    <p>Cross-platform 8-relay board control. Windows GUI built in C++ Builder with network remote management. Linux CLI tool in C with CMake build system.</p>
                 </div>
             </a>
         </div>
@@ -111,50 +153,37 @@
             <h3>GitHub repository</h3>
             <ul>
                 <li><a href="https://github.com/ArturKos">All projects</a></li>
-                <li><a href="https://github.com/ArturKos/ArturKos.github.io">This Web Page</a></li>
-                <li><a href="https://github.com/ArturKos/CHIP-8">The CHIP-8 processor emulator</a></li>
-                <li><a href="https://github.com/ArturKos/BigNumber">C++ library implementing big numbers with Google
-                        Test framework</a></li>
-                <li><a href="https://github.com/ArturKos/RelayBoard">Program to control relay board, Linux and Windows
-                        solutions</a></li>
-                <li><a href="https://github.com/ArturKos/Stacja-meteo">Weather station, several technologies used</a>
-                </li>
-                <li><a href="https://github.com/ArturKos/cpu_usage_tracker">CPU usage tracker, Linux command line
-                        tool</a></li>
-                <li><a href="https://github.com/intive/patronage20-embedded/tree/master/libraries/TemperatureSensor">Analog/digital
-                        temperature sensor implementation using ESP8266</a></li>
-                <li><a href="https://github.com/intive/patronage20-embedded/tree/master/libraries/LedControlerRGB">LED
-                        controller implementation on ESP8266</a></li>
-                <li><a href="https://github.com/ArturKos/puzzle">Puzzle Game implementation in Windows OS</a></li>
-                <li><a href="https://github.com/ArturKos/arkanoid">Arkanoid game implementation</a></li>
-                <li><a href="https://github.com/ArturKos/Steganografia">Steganography implementation program</a></li>
-                <li><a href="https://github.com/ArturKos/SerwerHTTP">Simple HTTP server</a></li>
-                <li><a href="https://github.com/ArturKos/Intive-PATRONAGE-2020-Szczecin-Projekt-0">Project 0 for Intive
-                        Patronage in Embedded Systems</a></li>
-                <li><a href="https://github.com/ArturKos/Intive-PARONAGE-2018-Szczecin-Projekt-0">Project 0 for Intive
-                        Patronage in Java</a></li>
-                <li><a href="https://github.com/ArturKos/poweroff">Windows program to shout down system</a></li>
-                <li><a href="https://github.com/ArturKos/modplay">Delphi component for bass.dll library</a></li>
-                <li><a href="https://github.com/ArturKos/b64decode">Windows program implementing base64</a></li>
-                <li><a href="https://github.com/ArturKos/MnozenieMacierzy">Linux program for matrix multiplication</a>
-                </li>
-                <li><a href="https://github.com/ArturKos/EmailNotifier">Linux command line program for email
-                        notification</a></li>
-                <li><a href="https://github.com/ArturKos/FTPmirror">Linux command line program to download via FTP
-                        protocol</a></li>
-                <li><a href="https://github.com/ArturKos/GetEmailsAttachement">Linux command line program downloading
-                        email attachements</a></li>
-                <li><a href="https://github.com/ArturKos/S-ownik">Windows program for words and anagram generator</a>
-                </li>
-                <li><a href="https://github.com/ArturKos/Lotto">Windows program for LOTTO</a></li>
-                <li><a href="https://github.com/ArturKos/Gallery">PHP gallery</a></li>
-                <li><a href="https://github.com/ArturKos/Thumbgen">Windows thumbs generator</a></li>
-                <li><a href="https://github.com/ArturKos/Nieznany-numer">Andoid app</a></li>
+                <li><a href="https://github.com/ArturKos/ArturKos.github.io">Portfolio website — this page (HTML/CSS/JS)</a></li>
+                <li><a href="https://github.com/ArturKos/CHIP-8">CHIP-8 processor emulator in C/C++ with Allegro5</a></li>
+                <li><a href="https://github.com/ArturKos/BigNumber">Arbitrary-precision arithmetic library in C++ with GoogleTest</a></li>
+                <li><a href="https://github.com/ArturKos/RelayBoard">Cross-platform 8-relay board controller (C++ Builder / C + CMake)</a></li>
+                <li><a href="https://github.com/ArturKos/Stacja-meteo">IoT weather station — ESP8266, Raspberry Pi, PHP+MySQL, Android app</a></li>
+                <li><a href="https://github.com/ArturKos/cpu_usage_tracker">Multithreaded CPU usage tracker — C, pthreads, /proc/stat</a></li>
+                <li><a href="https://github.com/intive/patronage20-embedded/tree/master/libraries/TemperatureSensor">ESP8266 temperature sensor library with MQTT (Intive Patronage 2020)</a></li>
+                <li><a href="https://github.com/intive/patronage20-embedded/tree/master/libraries/LedControlerRGB">ESP8266 RGB LED strip controller with MQTT (Intive Patronage 2020)</a></li>
+                <li><a href="https://github.com/ArturKos/puzzle">Puzzle game in C++ Builder 6.0 — engineering thesis project</a></li>
+                <li><a href="https://github.com/ArturKos/arkanoid">Arkanoid game in C++ with Allegro5 — levels, power-ups, scoring</a></li>
+                <li><a href="https://github.com/ArturKos/Steganografia">Steganography tool — hide text in images with password protection (C#)</a></li>
+                <li><a href="https://github.com/ArturKos/SerwerHTTP">Simple HTTP server implementation</a></li>
+                <li><a href="https://github.com/ArturKos/Intive-PATRONAGE-2020-Szczecin-Projekt-0">Intive Patronage 2020 — embedded systems assignments (C, IoT)</a></li>
+                <li><a href="https://github.com/ArturKos/Intive-PARONAGE-2018-Szczecin-Projekt-0">Intive Patronage 2018 — Android splash screen app (Java)</a></li>
+                <li><a href="https://github.com/ArturKos/poweroff">Automatic system shutdown utility for Windows</a></li>
+                <li><a href="https://github.com/ArturKos/modplay">Delphi component for bass.dll audio library</a></li>
+                <li><a href="https://github.com/ArturKos/b64decode">Base64 encoder/decoder for Windows</a></li>
+                <li><a href="https://github.com/ArturKos/MnozenieMacierzy">Matrix multiplication program for Linux</a></li>
+                <li><a href="https://github.com/ArturKos/EmailNotifier">Email notification CLI tool for Linux</a></li>
+                <li><a href="https://github.com/ArturKos/FTPmirror">FTP mirror/download CLI tool for Linux</a></li>
+                <li><a href="https://github.com/ArturKos/GetEmailsAttachement">Email attachment downloader CLI for Linux</a></li>
+                <li><a href="https://github.com/ArturKos/S-ownik">Word and anagram generator for Windows</a></li>
+                <li><a href="https://github.com/ArturKos/Lotto">Lottery analysis and drawing program</a></li>
+                <li><a href="https://github.com/ArturKos/Gallery">PHP image gallery with folder browsing</a></li>
+                <li><a href="https://github.com/ArturKos/Thumbgen">Thumbnail generator with batch resizing and cropping (C++ Builder)</a></li>
+                <li><a href="https://github.com/ArturKos/Nieznany-numer">Android caller identification app via nieznany-numer.pl</a></li>
             </ul>
         </div>
     </div>
 
-    <div id="contact" class="tab-content">
+    <div id="contact" class="tab-content" role="tabpanel" aria-labelledby="contact-tab">
         <div class="text-container">
             <div class="text-overlay"></div>
             <h2>Contact</h2>
@@ -179,38 +208,79 @@
     </div>
 
     <script>
-        // JavaScript to handle tab switching
+        // Tab switching
         const tabs = document.querySelectorAll('.tab');
         const tabContents = document.querySelectorAll('.tab-content');
 
         tabs.forEach(tab => {
             tab.addEventListener('click', () => {
-                // Deactivate all tabs and content
-                tabs.forEach(tab => tab.classList.remove('active'));
+                tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
                 tabContents.forEach(content => content.classList.remove('active'));
-
-                // Activate the clicked tab and corresponding content
                 tab.classList.add('active');
-                const tabId = tab.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
+                tab.setAttribute('aria-selected', 'true');
+                document.getElementById(tab.getAttribute('data-tab')).classList.add('active');
             });
         });
 
-        // JavaScript to handle automatic image pan
+        // Image pan animation
         const imageZoom = document.querySelector('.image-zoom');
         let position = 0;
         let direction = -1;
 
         function panImage() {
-            position += direction * 0.1; // Adjust the speed of panning
-            if (position >= 15 || position <= -100) { // Adjust the range of panning
-                direction *= -1;
-            }
+            position += direction * 0.1;
+            if (position >= 15 || position <= -100) direction *= -1;
             imageZoom.style.transform = `translateY(${position}%)`;
             requestAnimationFrame(panImage);
         }
-
         panImage();
+
+        // Scroll reveal animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Stagger the animation based on visible order
+                    const delay = index * 100;
+                    setTimeout(() => {
+                        entry.target.classList.add('revealed');
+                    }, delay);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        // Portfolio filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioLinks = document.querySelectorAll('.portfolio-link');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+                btn.classList.add('active');
+                btn.setAttribute('aria-pressed', 'true');
+
+                const filter = btn.getAttribute('data-filter');
+
+                portfolioLinks.forEach(link => {
+                    const tags = link.getAttribute('data-tags');
+                    if (filter === 'all' || tags.includes(filter)) {
+                        link.classList.remove('filtered-out');
+                        // Re-trigger reveal animation
+                        const item = link.querySelector('.scroll-reveal');
+                        item.classList.remove('revealed');
+                        requestAnimationFrame(() => {
+                            requestAnimationFrame(() => {
+                                item.classList.add('revealed');
+                            });
+                        });
+                    } else {
+                        link.classList.add('filtered-out');
+                    }
+                });
+            });
+        });
     </script>
 
 </body>
