@@ -40,12 +40,137 @@
 </head>
 
 <body>
-    <header>
-        <div class="image-zoom-container">
-            <img src="img/main.jpg" class="image-zoom"
-                alt="Artur Kos software developer workspace with code on screen">
+    <header class="hero-banner">
+        <svg class="hero-svg" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+                <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#1e90ff" stop-opacity="0"/>
+                    <stop offset="50%" stop-color="#1e90ff" stop-opacity="0.6"/>
+                    <stop offset="100%" stop-color="#1e90ff" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="lineGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#1e90ff" stop-opacity="0"/>
+                    <stop offset="50%" stop-color="#1e90ff" stop-opacity="0.4"/>
+                    <stop offset="100%" stop-color="#1e90ff" stop-opacity="0"/>
+                </linearGradient>
+            </defs>
+
+            <!-- Circuit board traces -->
+            <g stroke="url(#lineGrad)" stroke-width="1" fill="none" opacity="0.3">
+                <path d="M0,80 H200 L230,50 H400">
+                    <animate attributeName="stroke-dashoffset" from="800" to="0" dur="4s" fill="freeze"/>
+                    <animate attributeName="opacity" from="0" to="0.3" dur="2s" fill="freeze"/>
+                </path>
+                <path d="M800,250 H950 L980,220 H1200">
+                    <animate attributeName="stroke-dashoffset" from="800" to="0" dur="4s" begin="0.5s" fill="freeze"/>
+                    <animate attributeName="opacity" from="0" to="0.3" dur="2s" begin="0.5s" fill="freeze"/>
+                </path>
+                <path d="M0,200 H120 L150,170 H300 L330,200 H500">
+                    <animate attributeName="stroke-dashoffset" from="800" to="0" dur="5s" begin="1s" fill="freeze"/>
+                    <animate attributeName="opacity" from="0" to="0.3" dur="2s" begin="1s" fill="freeze"/>
+                </path>
+                <path d="M700,60 H850 L880,90 H1050 L1080,60 H1200">
+                    <animate attributeName="stroke-dashoffset" from="800" to="0" dur="5s" begin="0.8s" fill="freeze"/>
+                    <animate attributeName="opacity" from="0" to="0.3" dur="2s" begin="0.8s" fill="freeze"/>
+                </path>
+            </g>
+            <g stroke="url(#lineGrad2)" stroke-width="1" fill="none" opacity="0.2">
+                <line x1="200" y1="0" x2="200" y2="300"/>
+                <line x1="500" y1="0" x2="500" y2="300"/>
+                <line x1="700" y1="0" x2="700" y2="300"/>
+                <line x1="1000" y1="0" x2="1000" y2="300"/>
+            </g>
+
+            <!-- Circuit nodes (dots at intersections) -->
+            <g fill="#1e90ff">
+                <circle cx="200" cy="80" r="3" opacity="0">
+                    <animate attributeName="opacity" from="0" to="0.6" dur="0.5s" begin="2s" fill="freeze"/>
+                </circle>
+                <circle cx="230" cy="50" r="3" opacity="0">
+                    <animate attributeName="opacity" from="0" to="0.6" dur="0.5s" begin="2.2s" fill="freeze"/>
+                </circle>
+                <circle cx="150" cy="170" r="3" opacity="0">
+                    <animate attributeName="opacity" from="0" to="0.6" dur="0.5s" begin="2.5s" fill="freeze"/>
+                </circle>
+                <circle cx="330" cy="200" r="3" opacity="0">
+                    <animate attributeName="opacity" from="0" to="0.6" dur="0.5s" begin="2.7s" fill="freeze"/>
+                </circle>
+                <circle cx="980" cy="220" r="3" opacity="0">
+                    <animate attributeName="opacity" from="0" to="0.6" dur="0.5s" begin="2.4s" fill="freeze"/>
+                </circle>
+                <circle cx="880" cy="90" r="3" opacity="0">
+                    <animate attributeName="opacity" from="0" to="0.6" dur="0.5s" begin="2.6s" fill="freeze"/>
+                </circle>
+                <circle cx="1080" cy="60" r="3" opacity="0">
+                    <animate attributeName="opacity" from="0" to="0.6" dur="0.5s" begin="2.8s" fill="freeze"/>
+                </circle>
+            </g>
+
+            <!-- Floating code symbols -->
+            <g font-family="monospace" fill="#1e90ff" opacity="0.15" font-size="14">
+                <text x="60" y="40">
+                    &lt;/&gt;
+                    <animateTransform attributeName="transform" type="translate" values="0,0;0,-8;0,0" dur="6s" repeatCount="indefinite"/>
+                </text>
+                <text x="350" y="130">
+                    { }
+                    <animateTransform attributeName="transform" type="translate" values="0,0;0,10;0,0" dur="7s" repeatCount="indefinite"/>
+                </text>
+                <text x="1100" y="130">
+                    #include
+                    <animateTransform attributeName="transform" type="translate" values="0,0;0,-6;0,0" dur="5s" repeatCount="indefinite"/>
+                </text>
+                <text x="900" y="170">
+                    01101
+                    <animateTransform attributeName="transform" type="translate" values="0,0;0,7;0,0" dur="8s" repeatCount="indefinite"/>
+                </text>
+                <text x="50" y="260">
+                    int main()
+                    <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="6.5s" repeatCount="indefinite"/>
+                </text>
+                <text x="450" y="270">
+                    while(1)
+                    <animateTransform attributeName="transform" type="translate" values="0,0;0,6;0,0" dur="7.5s" repeatCount="indefinite"/>
+                </text>
+                <text x="750" y="40">
+                    0xFF
+                    <animateTransform attributeName="transform" type="translate" values="0,0;0,8;0,0" dur="5.5s" repeatCount="indefinite"/>
+                </text>
+                <text x="1050" y="270">
+                    sudo
+                    <animateTransform attributeName="transform" type="translate" values="0,0;0,-7;0,0" dur="6s" repeatCount="indefinite"/>
+                </text>
+                <text x="180" y="150">
+                    pthread
+                    <animateTransform attributeName="transform" type="translate" values="0,0;0,5;0,0" dur="9s" repeatCount="indefinite"/>
+                </text>
+                <text x="600" y="90">
+                    mqtt://
+                    <animateTransform attributeName="transform" type="translate" values="0,0;0,-9;0,0" dur="7s" repeatCount="indefinite"/>
+                </text>
+            </g>
+
+            <!-- Data pulse traveling along a circuit trace -->
+            <circle r="4" fill="#1e90ff" opacity="0.8">
+                <animateMotion dur="6s" repeatCount="indefinite" path="M0,80 H200 L230,50 H400"/>
+                <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle r="3" fill="#4db8ff" opacity="0.6">
+                <animateMotion dur="7s" repeatCount="indefinite" path="M800,250 H950 L980,220 H1200"/>
+                <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle r="3" fill="#1e90ff" opacity="0.7">
+                <animateMotion dur="8s" repeatCount="indefinite" path="M0,200 H120 L150,170 H300 L330,200 H500"/>
+                <animate attributeName="opacity" values="0.7;0.2;0.7" dur="3s" repeatCount="indefinite"/>
+            </circle>
+        </svg>
+
+        <div class="hero-glow"></div>
+
+        <div class="hero-content">
+            <h1>Artur Kos</h1>
+            <p class="hero-subtitle">Software Developer</p>
         </div>
-        <h1 class="sr-only">Artur Kos — Software Developer Portfolio</h1>
     </header>
 
     <nav class="tabs" role="tablist" aria-label="Portfolio sections">
@@ -221,19 +346,6 @@
                 document.getElementById(tab.getAttribute('data-tab')).classList.add('active');
             });
         });
-
-        // Image pan animation
-        const imageZoom = document.querySelector('.image-zoom');
-        let position = 0;
-        let direction = -1;
-
-        function panImage() {
-            position += direction * 0.1;
-            if (position >= 15 || position <= -100) direction *= -1;
-            imageZoom.style.transform = `translateY(${position}%)`;
-            requestAnimationFrame(panImage);
-        }
-        panImage();
 
         // Scroll reveal animations
         const observer = new IntersectionObserver((entries) => {
