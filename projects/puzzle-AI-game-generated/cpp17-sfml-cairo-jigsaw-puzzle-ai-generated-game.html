@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jigsaw Puzzle Game — Artur Kos</title>
+    <meta name="description"
+        content="Desktop jigsaw puzzle game built with SFML 2.5 and Cairo in C++17. Features Bezier-curve interlocking pieces, 3 difficulty levels, drag-and-drop gameplay, score tracking, and fully embedded resources. Entirely AI-generated.">
+    <meta name="keywords"
+        content="jigsaw puzzle, C++17, SFML, Cairo, game development, AI generated, Bezier curves, drag and drop, desktop game, Linux">
+    <meta name="author" content="Artur Kos">
+    <link rel="canonical" href="https://arturkos.github.io/projects/puzzle-AI-game-generated/cpp17-sfml-cairo-jigsaw-puzzle-ai-generated-game.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Jigsaw Puzzle Game — Artur Kos">
+    <meta property="og:description" content="Desktop jigsaw puzzle game built with SFML 2.5 and Cairo in C++17. Bezier-curve pieces, 3 difficulty levels, drag-and-drop, score tracking. Fully AI-generated.">
+    <meta property="og:url" content="https://arturkos.github.io/projects/puzzle-AI-game-generated/cpp17-sfml-cairo-jigsaw-puzzle-ai-generated-game.html">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Jigsaw Puzzle Game — Artur Kos">
+    <meta name="twitter:description" content="Desktop jigsaw puzzle game built with SFML 2.5 and Cairo in C++17. Bezier-curve pieces, 3 difficulty levels, drag-and-drop, score tracking. Fully AI-generated.">
+    <link rel="icon" type="image/svg+xml" href="../../img/favicon.svg">
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body>
+    <div class="text-container">
+        <h1>Jigsaw Puzzle Game</h1>
+        <p class="project-badge">Fully AI-Generated</p>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <p>
+            A desktop jigsaw puzzle game built entirely with AI assistance using <strong>C++17</strong>,
+            <strong>SFML 2.5</strong> for graphics and input, and <strong>Cairo</strong> for rendering
+            realistic interlocking puzzle pieces via Bezier curves. The game features three escalating
+            difficulty levels — from 12 pieces (Easy) to 192 pieces (Nightmare) — with smooth drag-and-drop
+            gameplay, snap-to-grid alignment, and audio feedback.
+        </p>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Features</h2>
+        <ul>
+            <li>Classic jigsaw pieces with interlocking tabs and blanks rendered via Cairo Bezier curves</li>
+            <li>3 difficulty levels: Easy (12 pieces), Medium, and Nightmare (192 pieces)</li>
+            <li>Drag-and-drop with visual feedback — snap-to-grid and drop shadows</li>
+            <li>5 animated screens: intro, name/difficulty selection, gameplay, victory, and high scores</li>
+            <li>Persistent score tracking with difficulty-based filtering</li>
+            <li>Toggleable sound effects</li>
+            <li>All images and sounds embedded at compile time — fully self-contained binary</li>
+            <li>Custom image support — add PNG/JPG/BMP files and rebuild</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Technical Details</h2>
+        <ul>
+            <li><strong>Language:</strong> C++17</li>
+            <li><strong>Graphics:</strong> SFML 2.5, Cairo 1.16+</li>
+            <li><strong>Build system:</strong> CMake 3.16+</li>
+            <li><strong>Resource embedding:</strong> Python code generator converts assets to C++ byte arrays</li>
+            <li><strong>Architecture:</strong> Modular codebase — rendering, puzzle generation, scoring, and UI components</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Build Instructions</h2>
+        <p>Requirements: CMake (3.16+), pkg-config, SFML (2.5+), Cairo (1.16+)</p>
+        <pre style="text-align: left; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; overflow-x: auto; color: #8ec8ff;">git clone https://github.com/ArturKos/puzzle-AI-game-generated.git
+cd puzzle-AI-game-generated
+mkdir build && cd build
+cmake ..
+make</pre>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <p>Check out the project on GitHub: <a href="https://github.com/ArturKos/puzzle-AI-game-generated" target="_blank">Jigsaw Puzzle Game on GitHub</a></p>
+        <a href="../../index.html" class="back-to-portfolio">Back to Portfolio</a>
+    </div>
+</body>
+
+</html>
