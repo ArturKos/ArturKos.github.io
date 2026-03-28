@@ -4,52 +4,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puzzle Game</title>
-    <!-- Meta description for SEO -->
+    <title>Puzzle Game — Artur Kos</title>
     <meta name="description"
-        content="A C++ implementation of a puzzle game developed using Borland C++ Builder for Windows OS. Explore the project, watch the video presentation, and learn about its features and functionality.">
-    <!-- Meta keywords for SEO -->
+        content="Jigsaw puzzle game built with C++ Builder 6.0 as an engineering degree project. Features save/load system, high scores, MIDI audio, animated intro, and custom data structures for puzzle piece management.">
     <meta name="keywords"
-        content="puzzle game, C++, Borland C++ Builder, Windows OS, game development, video presentation, GitHub project, game programming, GDI, Windows game, C++ puzzle game">
+        content="puzzle game, C++, Borland C++ Builder, Windows, VCL, GDI, game development, MIDI audio, engineering thesis, jigsaw puzzle, save load, high scores, JPEG">
+    <meta name="author" content="Artur Kos">
     <link rel="canonical" href="https://arturkos.github.io/projects/puzzle-game/cpp-borland-builder-programming-game-windows-gdi.html">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Puzzle Game — Artur Kos">
-    <meta property="og:description" content="A C++ implementation of a puzzle game developed using Borland C++ Builder for Windows OS. Explore the project, watch the video presentation, and learn about its features and functionality.">
+    <meta property="og:description" content="Jigsaw puzzle game built with C++ Builder 6.0 as an engineering degree project. Save/load system, high scores, MIDI audio, and animated intro.">
     <meta property="og:url" content="https://arturkos.github.io/projects/puzzle-game/cpp-borland-builder-programming-game-windows-gdi.html">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Puzzle Game — Artur Kos">
-    <meta name="twitter:description" content="A C++ implementation of a puzzle game developed using Borland C++ Builder for Windows OS. Explore the project, watch the video presentation, and learn about its features and functionality.">
-    <!-- Link to external stylesheet -->
+    <meta name="twitter:description" content="Jigsaw puzzle game built with C++ Builder 6.0 as an engineering degree project. Save/load system, high scores, MIDI audio, and animated intro.">
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
 
 <body>
     <div class="text-container">
         <h1>Puzzle Game</h1>
+        <p class="project-badge">Engineering Degree Project</p>
     </div>
-    <!-- Video presentation -->
+
     <div class="video-container">
         <video controls class="center">
             <source src="img/mpeg-puzle-video-presentation.m4v" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
-    <!-- Image gallery -->
+
     <div class="image-container">
         <img src="img/game-windows-cpp-screen-1.png"
             alt="Screenshot of the puzzle game interface developed in Borland C++ Builder" class="center" loading="lazy">
         <img src="img/game-windows-cpp-screen-2.png"
             alt="Gameplay screenshot of the puzzle game showing a solved puzzle" class="center" loading="lazy">
     </div>
+
     <div class="text-container">
         <div class="text-overlay"></div>
         <p>
-            Puzzle game C++ implementation. Developed under Borland C++ Builder for Windows OS.<br><br>
+            A jigsaw puzzle game developed as an <strong>engineering degree project</strong>, built with
+            <strong>C++ Builder 6.0</strong> and the Windows VCL framework. The game features multiple screens,
+            persistent save/load functionality, MIDI audio playback, player profiles, and a leaderboard system.
         </p>
-        <!-- Link to the GitHub repository -->
-        <p>Check out the project on GitHub: <a href="https://github.com/ArturKos/puzzle" target="_blank">Puzzle Game
-                on GitHub</a></p>
-        <!-- Link back to the portfolio -->
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Features</h2>
+        <ul>
+            <li><strong>Multiple game screens</strong> — animated AVI intro, game loading, main gameplay, results, and high scores</li>
+            <li><strong>Save and load</strong> game progress with custom binary serialization</li>
+            <li><strong>MIDI audio playback</strong> via Windows MCI (Media Control Interface)</li>
+            <li><strong>Custom data structures</strong> — StosPuzli stack-based system for puzzle piece management with linked nodes</li>
+            <li><strong>Player profiles</strong> and persistent leaderboard tracking</li>
+            <li><strong>Configurable difficulty</strong> with varying piece counts</li>
+            <li><strong>JPEG image support</strong> for puzzle source images</li>
+            <li><strong>GDI rendering</strong> with VCL Canvas for smooth graphics</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Technical Details</h2>
+        <ul>
+            <li><strong>Language:</strong> C++ (Borland C++ Builder 6.0)</li>
+            <li><strong>Framework:</strong> Windows VCL (Visual Component Library)</li>
+            <li><strong>Graphics:</strong> GDI via VCL Canvas, JPEG decoding</li>
+            <li><strong>Audio:</strong> MIDI playback through Windows MCI interface</li>
+            <li><strong>Persistence:</strong> Custom binary format for saved games, separate player data files</li>
+            <li><strong>Architecture:</strong> Multi-form application with 7 forms (intro, loading, gameplay, results, scores, name entry, about)</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Thesis Presentation</h2>
+        <p>View the engineering thesis presentation: <a href="https://prezi.com/mh6rxfmuftyk/praca-dyplomowa-inzynierska/" target="_blank">Engineering Thesis on Prezi</a></p>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <p>Check out the project on GitHub: <a href="https://github.com/ArturKos/puzzle" target="_blank">Puzzle Game on GitHub</a></p>
         <a href="../../index.html" class="back-to-portfolio">Back to Portfolio</a>
     </div>
 </body>

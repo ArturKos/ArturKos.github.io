@@ -4,22 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPU Usage Tracker</title>
-    <!-- Meta description for SEO -->
+    <title>CPU Usage Tracker — Artur Kos</title>
     <meta name="description"
-        content="A console-based program for monitoring the usage of individual CPU cores. Written in C and multithreaded, it provides real-time data processing and synchronization using mutexes.">
-    <!-- Meta keywords for SEO -->
+        content="Multithreaded per-core CPU usage monitor for Linux. Producer-consumer architecture with dedicated reader, analyzer, printer, and watchdog threads. Built with C and POSIX pthreads.">
     <meta name="keywords"
-        content="CPU usage tracker, programming C, multithreading, Linux, system monitoring, real-time data, mutexes, Ubuntu, Debian, Fedora, Raspbian">
+        content="CPU usage tracker, C programming, pthreads, multithreading, Linux, system monitoring, /proc/stat, mutex, producer-consumer, watchdog, Valgrind, Ubuntu, Debian, Fedora, Raspberry Pi">
+    <meta name="author" content="Artur Kos">
     <link rel="canonical" href="https://arturkos.github.io/projects/cpu-usage-tracker/pthread-programming-linux-gcc-c-programming-multithread.html">
     <meta property="og:type" content="article">
     <meta property="og:title" content="CPU Usage Tracker — Artur Kos">
-    <meta property="og:description" content="A console-based program for monitoring the usage of individual CPU cores. Written in C and multithreaded, it provides real-time data processing and synchronization using mutexes.">
+    <meta property="og:description" content="Multithreaded per-core CPU usage monitor for Linux. Producer-consumer architecture with dedicated reader, analyzer, printer, and watchdog threads.">
     <meta property="og:url" content="https://arturkos.github.io/projects/cpu-usage-tracker/pthread-programming-linux-gcc-c-programming-multithread.html">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="CPU Usage Tracker — Artur Kos">
-    <meta name="twitter:description" content="A console-based program for monitoring the usage of individual CPU cores. Written in C and multithreaded, it provides real-time data processing and synchronization using mutexes.">
-    <!-- Link to external stylesheet -->
+    <meta name="twitter:description" content="Multithreaded per-core CPU usage monitor for Linux. Producer-consumer architecture with dedicated reader, analyzer, printer, and watchdog threads.">
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
 
@@ -27,22 +25,70 @@
     <div class="text-container">
         <h1>CPU Usage Tracker</h1>
     </div>
-    <!-- Example image of the CPU Usage Tracker -->
+
     <img src="img/cpu_usage_tracker_example.png" alt="Example of CPU Usage Tracker in action" class="center" loading="lazy">
+
     <div class="text-container">
         <div class="text-overlay"></div>
         <p>
-            A console-based program for monitoring the usage of individual CPU cores. It reads CPU usage data directly
-            from system files (/proc/stat), providing detailed information about the activity of each core. The program
-            is written in C and is multithreaded, with each CPU core being monitored in a separate thread, allowing
-            real-time data processing. Synchronization between threads is managed using mutexes. Basic unit tests for
-            some functions have been designed to ensure the program’s correctness. It has been tested on various Linux
-            distributions, including Ubuntu, Lubuntu, Debian, Raspbian, and Fedora.
+            A multithreaded per-core CPU usage monitor for Linux that reads statistics directly from
+            <strong>/proc/stat</strong> and displays real-time utilization percentages. The program uses a
+            <strong>producer-consumer architecture</strong> with four dedicated threads, mutex-protected shared
+            data structures, and a watchdog system for thread health monitoring.
         </p>
-        <!-- Link to the GitHub repository -->
-        <p>Check out the project on GitHub: <a href="https://github.com/ArturKos/cpu_usage_tracker" target="_blank">CPU
-                Usage Tracker on GitHub</a></p>
-        <!-- Link back to the portfolio -->
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Features</h2>
+        <ul>
+            <li><strong>Producer-consumer pipeline</strong> with 4 dedicated threads: reader, analyzer, printer, and watchdog</li>
+            <li><strong>Real-time monitoring</strong> of individual CPU core utilization from /proc/stat</li>
+            <li><strong>Mutex synchronization</strong> for thread-safe access to shared data structures</li>
+            <li><strong>Watchdog thread</strong> monitoring thread health with timestamp tracking and heartbeat detection</li>
+            <li><strong>Graceful shutdown</strong> via SIGTERM signal handling</li>
+            <li><strong>Dynamic core detection</strong> — automatically adapts to the number of CPU cores</li>
+            <li><strong>Unit tests</strong> for core calculation functions</li>
+            <li><strong>Zero memory leaks</strong> verified with Valgrind (86 allocs, 86 frees)</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Technical Details</h2>
+        <ul>
+            <li><strong>Language:</strong> C with POSIX pthreads</li>
+            <li><strong>Build system:</strong> Makefile with gcc</li>
+            <li><strong>Thread architecture:</strong> Reader parses /proc/stat, Analyzer computes percentages, Printer formats output, Watchdog monitors heartbeats</li>
+            <li><strong>Synchronization:</strong> Mutex-protected shared queues between pipeline stages</li>
+            <li><strong>Signal handling:</strong> SIGTERM triggers clean thread shutdown and resource deallocation</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Build Instructions</h2>
+        <pre style="text-align: left; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; overflow-x: auto; color: #8ec8ff;">git clone https://github.com/ArturKos/cpu_usage_tracker.git
+cd cpu_usage_tracker
+make</pre>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Tested Platforms</h2>
+        <ul>
+            <li>Ubuntu (Intel i5, Intel i7)</li>
+            <li>Linux Mint (Intel i5)</li>
+            <li>Lubuntu (Intel Atom N550)</li>
+            <li>Raspbian (Raspberry Pi 4, 4GB RAM)</li>
+            <li>Fedora (KVM Virtual Machine)</li>
+            <li>Debian (KVM Virtual Machine)</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <p>Check out the project on GitHub: <a href="https://github.com/ArturKos/cpu_usage_tracker" target="_blank">CPU Usage Tracker on GitHub</a></p>
         <a href="../../index.html" class="back-to-portfolio">Back to Portfolio</a>
     </div>
 </body>

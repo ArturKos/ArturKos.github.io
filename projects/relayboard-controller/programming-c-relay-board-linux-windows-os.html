@@ -4,22 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relay Board Controller</title>
-    <!-- Meta description for SEO -->
+    <title>Relay Board Controller — Artur Kos</title>
     <meta name="description"
-        content="A project for controlling an 8-relay board with two applications: a Windows GUI application developed in Borland C++ Builder and a Linux console application written in C. Demonstrates low-level programming and hardware interaction.">
-    <!-- Meta keywords for SEO -->
+        content="Cross-platform 8-channel relay board controller with custom serial protocol and CRC8 validation. Windows GUI (C++ Builder) and Linux CLI (C, CMake) for managing relay power strips via serial/USB.">
     <meta name="keywords"
-        content="relay board, C programming, Borland C++ Builder, Windows application, Linux application, hardware control, low-level programming, relay control, network-based control, embedded systems">
+        content="relay board, serial communication, CRC8, C programming, C++ Builder, embedded systems, Linux, Windows, CMake, hardware control, USB, UART, cross-platform, IoT">
+    <meta name="author" content="Artur Kos">
     <link rel="canonical" href="https://arturkos.github.io/projects/relayboard-controller/programming-c-relay-board-linux-windows-os.html">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Relay Board Controller — Artur Kos">
-    <meta property="og:description" content="A project for controlling an 8-relay board with two applications: a Windows GUI application developed in Borland C++ Builder and a Linux console application written in C. Demonstrates low-level programming and hardware interaction.">
+    <meta property="og:description" content="Cross-platform 8-channel relay board controller with custom serial protocol and CRC8 validation. Windows GUI and Linux CLI.">
     <meta property="og:url" content="https://arturkos.github.io/projects/relayboard-controller/programming-c-relay-board-linux-windows-os.html">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Relay Board Controller — Artur Kos">
-    <meta name="twitter:description" content="A project for controlling an 8-relay board with two applications: a Windows GUI application developed in Borland C++ Builder and a Linux console application written in C. Demonstrates low-level programming and hardware interaction.">
-    <!-- Link to external stylesheet -->
+    <meta name="twitter:description" content="Cross-platform 8-channel relay board controller with custom serial protocol and CRC8 validation. Windows GUI and Linux CLI.">
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
 
@@ -27,33 +25,63 @@
     <div class="text-container">
         <h1>Relay Board Controller</h1>
     </div>
-    <!-- Image gallery -->
+
     <div class="image-container">
-        <img src="img/relay-board-picture.jpg" alt="Relay board used for controlling devices" class="center" loading="lazy">
+        <img src="img/relay-board-picture.jpg" alt="8-channel relay board used for controlling devices" class="center" loading="lazy">
     </div>
+
     <div class="text-container">
         <div class="text-overlay"></div>
         <p>
-            This project consists of two applications for controlling an 8-relay board: a Windows GUI application and a
-            Linux console application.
-            <br><br>
-            The <strong>Windows application</strong>, developed using Borland C++ Builder, provides a graphical user
-            interface for
-            controlling the relays. It also supports network-based control, allowing users to manage the relay board
-            remotely over a network.
-            <br><br>
-            The <strong>Linux application</strong>, implemented in C, is a command-line tool designed for direct control
-            of the relay
-            board. This version was created several years after the Windows application to extend the functionality to
-            Linux systems.
-            <br><br>
-            Both applications demonstrate the use of low-level programming to interact with hardware, providing a
-            practical solution for relay control in different operating systems.
+            A <strong>cross-platform controller</strong> for managing an <strong>8-channel relay power strip</strong>
+            via serial/USB connection. Implements a custom binary protocol at 57600 baud with
+            <strong>CRC8 checksums</strong> for reliable communication. Includes a Windows GUI application
+            with network remote control and a Linux command-line interface.
         </p>
-        <!-- Link to the GitHub repository -->
-        <p>Check out the project on GitHub: <a href="https://github.com/ArturKos/RelayBoard" target="_blank">RelayBoard
-                on GitHub</a></p>
-        <!-- Link back to the portfolio -->
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Features</h2>
+        <ul>
+            <li><strong>Custom binary serial protocol</strong> at 57600 baud (8 data bits, no parity, 1 stop bit)</li>
+            <li><strong>CRC8 checksums</strong> on all messages for data integrity validation</li>
+            <li><strong>5-byte frame format:</strong> sync byte (0x55), length, command, data, CRC8</li>
+            <li><strong>Command set:</strong> Set all relays, Turn on/off individual relay (0-7), Get relay status</li>
+            <li><strong>Windows GUI</strong> with VCL interface and network socket support for remote control</li>
+            <li><strong>Linux CLI</strong> with configuration file for relay labels and device path</li>
+            <li><strong>Human-readable output</strong> showing relay states with custom labels from config file</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Technical Details</h2>
+        <ul>
+            <li><strong>Windows version:</strong> C++ Builder 6.0 with VCL, socket library for remote control, hash-based authentication</li>
+            <li><strong>Linux version:</strong> C with POSIX termios for serial communication, CMake 3.2+ build system</li>
+            <li><strong>Serial protocol:</strong> Custom binary commands — 'S' (set all), 'O' (on), 'F' (off), 'G' (get status), 'R' (response)</li>
+            <li><strong>CRC8 implementation:</strong> Lookup table and bit-by-bit versions, seed 0x00, excludes sync byte</li>
+            <li><strong>Configuration:</strong> INI-style config file mapping relay numbers to human-readable labels</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Build Instructions</h2>
+        <h3 style="color: #8ec8ff;">Linux</h3>
+        <pre style="text-align: left; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; overflow-x: auto; color: #8ec8ff;">cd linux
+mkdir build && cd build
+cmake ..
+make
+./power_strip</pre>
+        <h3 style="color: #8ec8ff;">Windows</h3>
+        <p>Open the <code>.bpr</code> project file in C++ Builder 6.0 and build.</p>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <p>Check out the project on GitHub: <a href="https://github.com/ArturKos/RelayBoard" target="_blank">Relay Board Controller on GitHub</a></p>
         <a href="../../index.html" class="back-to-portfolio">Back to Portfolio</a>
     </div>
 </body>

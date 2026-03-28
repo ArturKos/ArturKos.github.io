@@ -4,30 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LED Controller</title>
-    <!-- Meta description for SEO -->
+    <title>LED Controller RGB — Artur Kos</title>
     <meta name="description"
-        content="A C implementation of an RGB LED controller using ESP8266 and MQTT. This project demonstrates real-time control of LED colors, integration with IoT systems, and smart home automation developed during the INTIVE PATRONAGE 2020 program.">
-    <!-- Meta keywords for SEO -->
+        content="ESP8266-based RGB LED strip controller with HSV-to-RGB conversion and MQTT data transmission. Developed during Intive Patronage 2020 as part of a smart home IoT ecosystem.">
     <meta name="keywords"
-        content="ESP8266, MQTT, C programming, real-time monitoring, LED, embedded systems, INTIVE PATRONAGE 2020, IoT, smart home, data transmission">
+        content="ESP8266, MQTT, RGB LED, C programming, IoT, smart home, HSV color conversion, embedded systems, Intive Patronage 2020, LED controller, Arduino">
+    <meta name="author" content="Artur Kos">
     <link rel="canonical" href="https://arturkos.github.io/projects/led-controller-rgb/mqtt-programming-c-esp8266-intive-patronage-2020-embedded-smart-home.html">
     <meta property="og:type" content="article">
     <meta property="og:title" content="LED Controller RGB — Artur Kos">
-    <meta property="og:description" content="A C implementation of an RGB LED controller using ESP8266 and MQTT. This project demonstrates real-time control of LED colors, integration with IoT systems, and smart home automation developed during the INTIVE PATRONAGE 2020 program.">
+    <meta property="og:description" content="ESP8266-based RGB LED strip controller with HSV-to-RGB conversion and MQTT data transmission for smart home automation.">
     <meta property="og:url" content="https://arturkos.github.io/projects/led-controller-rgb/mqtt-programming-c-esp8266-intive-patronage-2020-embedded-smart-home.html">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="LED Controller RGB — Artur Kos">
-    <meta name="twitter:description" content="A C implementation of an RGB LED controller using ESP8266 and MQTT. This project demonstrates real-time control of LED colors, integration with IoT systems, and smart home automation developed during the INTIVE PATRONAGE 2020 program.">
-    <!-- Link to external stylesheet -->
+    <meta name="twitter:description" content="ESP8266-based RGB LED strip controller with HSV-to-RGB conversion and MQTT data transmission for smart home automation.">
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
 
 <body>
     <div class="text-container">
-        <h1>LED Controller</h1>
+        <h1>LED Controller RGB</h1>
+        <p class="project-badge">Intive Patronage 2020</p>
     </div>
-    <!-- Image gallery -->
+
     <div class="image-container">
         <img src="img/led-connected-to-esp8266.jpg" alt="LED connected to ESP8266 microcontroller" class="center" loading="lazy">
         <img src="img/smart-home-3d-model-intive-patronage.jpg"
@@ -39,26 +38,47 @@
         <img src="img/ESP8266-sensors-connected-to-smart-home.jpg"
             alt="ESP8266 connected to sensors in a smart home setup" class="center" loading="lazy">
     </div>
+
     <div class="text-container">
         <div class="text-overlay"></div>
         <p>
-            A library for controlling RGB LED strips, developed as part of the INTIVE PATRONAGE 2020 project held in
-            Szczecin. This implementation handles LED lighting connected to an ESP8266 board and includes HSV to RGB
-            color conversion. It utilizes MQTT for data transmission to the server, simplifying the interaction with
-            various RGB LED configurations while providing functions to set colors, manage brightness, and create
-            various lighting effects.<br><br>
-
-            <strong>Features:</strong><br>
-            – Create various lighting effects<br>
-            – Control RGB LED strips<br>
-            – Set colors and manage brightness<br>
-            – Integrate with MQTT for data transmission<br>
+            An <strong>ESP8266-based RGB LED strip controller</strong> developed as part of the
+            <strong>Intive Patronage 2020</strong> program (Szczecin, embedded track). The library provides
+            intuitive color control via HSV-to-RGB conversion and uses <strong>MQTT</strong> for real-time
+            data transmission to a central smart home server.
         </p>
-        <!-- Link to the GitHub repository -->
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Features</h2>
+        <ul>
+            <li><strong>HSV-to-RGB color conversion</strong> for intuitive color selection and smooth transitions</li>
+            <li><strong>MQTT integration</strong> for real-time data transmission to a central server</li>
+            <li><strong>Brightness management</strong> with programmable intensity levels</li>
+            <li><strong>Lighting effects</strong> — create custom color sequences and patterns</li>
+            <li><strong>Smart home ecosystem</strong> — works alongside temperature sensors and other IoT devices</li>
+            <li><strong>Configurable WiFi</strong> with automatic reconnection handling</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Technical Details</h2>
+        <ul>
+            <li><strong>Language:</strong> C (Arduino/ESP8266 framework)</li>
+            <li><strong>Microcontroller:</strong> ESP8266</li>
+            <li><strong>Protocol:</strong> MQTT for publish/subscribe messaging</li>
+            <li><strong>Color model:</strong> HSV input converted to RGB PWM output</li>
+            <li><strong>Part of:</strong> Intive Patronage 2020 smart home ecosystem (Szczecin)</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
         <p>Check out the project on GitHub: <a
                 href="https://github.com/intive/patronage20-embedded/tree/master/libraries/LedControlerRGB"
                 target="_blank">LED Controller on GitHub</a></p>
-        <!-- Link back to the portfolio -->
         <a href="../../index.html" class="back-to-portfolio">Back to Portfolio</a>
     </div>
 </body>
