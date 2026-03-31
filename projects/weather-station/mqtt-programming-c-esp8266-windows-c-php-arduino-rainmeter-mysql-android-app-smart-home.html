@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Station — Artur Kos</title>
     <meta name="description"
-        content="Full-stack IoT weather station with ESP8266 sensors, Raspberry Pi server, PHP/MySQL backend, web dashboard with charts, Android app, and Windows 10 Rainmeter widget. Measures indoor and outdoor temperature and humidity.">
+        content="Full-stack IoT weather station with ESP8266 sensors, Raspberry Pi server, PHP/MySQL backend, web dashboard with charts, weather forecast using historical data analysis, Android app, and Windows 10 Rainmeter widget. Measures indoor and outdoor temperature and humidity.">
     <meta name="keywords"
-        content="weather station, ESP8266, Raspberry Pi, DHT11, DHT22, IoT, PHP, MySQL, Android app, Rainmeter, smart home, temperature, humidity, data visualization, CanvasJS, Arduino">
+        content="weather station, ESP8266, Raspberry Pi, DHT11, DHT22, IoT, PHP, MySQL, Android app, Rainmeter, smart home, temperature, humidity, data visualization, CanvasJS, Chart.js, Arduino, weather forecast, historical data analysis">
     <meta name="author" content="Artur Kos">
     <link rel="canonical" href="https://arturkos.github.io/projects/weather-station/mqtt-programming-c-esp8266-windows-c-php-arduino-rainmeter-mysql-android-app-smart-home.html">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Weather Station — Artur Kos">
-    <meta property="og:description" content="Full-stack IoT weather station with ESP8266, Raspberry Pi, PHP/MySQL, web dashboard, Android app, and Windows widget. Measures indoor/outdoor temperature and humidity.">
+    <meta property="og:description" content="Full-stack IoT weather station with ESP8266, Raspberry Pi, PHP/MySQL, web dashboard, weather forecast, Android app, and Windows widget. Measures indoor/outdoor temperature and humidity.">
     <meta property="og:url" content="https://arturkos.github.io/projects/weather-station/mqtt-programming-c-esp8266-windows-c-php-arduino-rainmeter-mysql-android-app-smart-home.html">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Weather Station — Artur Kos">
-    <meta name="twitter:description" content="Full-stack IoT weather station with ESP8266, Raspberry Pi, PHP/MySQL, web dashboard, Android app, and Windows widget.">
+    <meta name="twitter:description" content="Full-stack IoT weather station with ESP8266, Raspberry Pi, PHP/MySQL, web dashboard, weather forecast, Android app, and Windows widget.">
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
 
@@ -27,6 +27,8 @@
     </div>
 
     <div class="image-container">
+        <img src="img/forecast-dashboard.png"
+            alt="Weather forecast dashboard with Chart.js charts, hourly predictions, and dark-themed responsive UI" class="center" loading="lazy">
         <img src="img/android-app-client-weather-station.png"
             alt="Android app client interface for the weather station project" class="center" loading="lazy">
         <img src="img/website-weather-station-php-look.png"
@@ -42,6 +44,8 @@
             both indoors and outdoors. The system spans the entire stack — from <strong>ESP8266 firmware</strong>
             reading hardware sensors, through a <strong>Raspberry Pi server</strong> with PHP/MySQL backend,
             to multiple client frontends including a web dashboard, Android app, and Windows desktop widget.
+            The system also includes a <strong>weather forecast module</strong> that predicts temperature and humidity
+            using weighted historical averages blended with recent trend extrapolation.
         </p>
     </div>
 
@@ -52,6 +56,7 @@
             <li><strong>ESP8266 firmware</strong> — reads DHT11 (indoor) and DHT22 (outdoor) sensors every 300 seconds, sends data via HTTP POST over WiFi</li>
             <li><strong>Raspberry Pi server</strong> — hosts PHP/MySQL backend, receives and stores sensor data with API key authentication</li>
             <li><strong>Web dashboard</strong> — PHP-generated pages with CanvasJS chart visualization of historical data</li>
+            <li><strong>Forecast dashboard</strong> — dark-themed responsive UI with Chart.js, showing multi-day temperature and humidity predictions based on historical data analysis</li>
             <li><strong>Android app</strong> — WebView-based client displaying real-time and historical data</li>
             <li><strong>Windows widget</strong> — Rainmeter desktop skin for at-a-glance monitoring</li>
         </ul>
@@ -66,6 +71,7 @@
             <li><strong>RESTful API</strong> with API key authentication for secure data ingestion</li>
             <li><strong>Historical chart visualization</strong> using CanvasJS on the web dashboard</li>
             <li><strong>JSON data export</strong> for real-time readings</li>
+            <li><strong>Weather forecast</strong> — up to 7-day predictions using 70% weighted historical average (same date ±3 days across years) + 30% recent 3-day trend extrapolation</li>
             <li><strong>Multi-platform clients</strong> — web browser, Android, and Windows desktop</li>
             <li><strong>Grid-powered</strong> with sensors connected via twisted pair cable (~2m)</li>
         </ul>
@@ -90,6 +96,7 @@
             <li><strong>Backend:</strong> PHP 7.x with MySQL database, RESTful endpoints</li>
             <li><strong>Frontend:</strong> PHP-rendered HTML with CanvasJS charts, responsive design</li>
             <li><strong>Android:</strong> Java WebView-based client loading server-rendered pages</li>
+            <li><strong>Forecast:</strong> PHP JSON API with statistical prediction engine, Chart.js frontend with hourly detail tables and trend visualization</li>
             <li><strong>Widget:</strong> Rainmeter skin for Windows 10 desktop integration</li>
             <li><strong>Database schema:</strong> Per-station tables with columns for indoor/outdoor temperature and humidity</li>
         </ul>
