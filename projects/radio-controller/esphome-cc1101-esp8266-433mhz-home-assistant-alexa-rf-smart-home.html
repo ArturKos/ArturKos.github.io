@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Controller — Artur Kos</title>
+    <meta name="description"
+        content="433MHz RF light controller built with ESP8266 (NodeMCU v2) and CC1101 transceiver, managed through ESPHome and integrated with Home Assistant. Controls lights via captured RC Switch codes with Amazon Alexa voice control. Includes RF signal monitoring and a parametric 3D printable OpenSCAD case.">
+    <meta name="keywords"
+        content="radio controller, 433MHz, CC1101, ESP8266, NodeMCU, ESPHome, Home Assistant, Alexa, RF, ASK/OOK, RC Switch, smart home, IoT, 3D printing, OpenSCAD, voice control, emulated_hue">
+    <meta name="author" content="Artur Kos">
+    <link rel="canonical" href="https://arturkos.github.io/projects/radio-controller/esphome-cc1101-esp8266-433mhz-home-assistant-alexa-rf-smart-home.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Radio Controller — Artur Kos">
+    <meta property="og:description" content="ESP8266 + CC1101 433MHz RF light controller for Home Assistant with Alexa voice control, RF signal monitoring, and 3D printable case.">
+    <meta property="og:url" content="https://arturkos.github.io/projects/radio-controller/esphome-cc1101-esp8266-433mhz-home-assistant-alexa-rf-smart-home.html">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Radio Controller — Artur Kos">
+    <meta name="twitter:description" content="ESP8266 + CC1101 433MHz RF light controller for Home Assistant with Alexa voice control, RF signal monitoring, and 3D printable case.">
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body>
+    <div class="text-container">
+        <h1>Radio Controller</h1>
+    </div>
+
+    <div class="image-container">
+        <img src="img/nodemcu-v2.jpg"
+            alt="NodeMCU v2 ESP8266 development board with WiFi module and micro-USB connector" class="center" loading="lazy">
+        <img src="img/cc1101-module.jpg"
+            alt="CC1101 433MHz RF transceiver module with SMA antenna connector" class="center" loading="lazy">
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <p>
+            A <strong>433MHz RF light controller</strong> built with an <strong>ESP8266</strong> (NodeMCU v2) and
+            <strong>CC1101</strong> transceiver, managed through <strong>ESPHome</strong> and integrated with
+            <strong>Home Assistant</strong>. Controls bedroom and living room lights over ASK/OOK modulation using
+            captured RC Switch codes, with <strong>Amazon Alexa</strong> voice control via emulated_hue. Also functions
+            as a passive <strong>RF signal monitor</strong>, logging all received 433MHz transmissions for discovering
+            nearby weather stations, door sensors, and other devices.
+        </p>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Architecture</h2>
+        <ul>
+            <li><strong>ESP8266 + CC1101</strong> — NodeMCU v2 communicates with CC1101 RF transceiver over SPI, sharing a single GDO0 pin for both receiving and transmitting</li>
+            <li><strong>ESPHome firmware</strong> — native CC1101 component handles 433.92MHz ASK/OOK modulation, RC Switch protocol encoding/decoding, and automatic RX/TX mode switching</li>
+            <li><strong>Home Assistant</strong> — connects via encrypted native API, exposes buttons for each light control command</li>
+            <li><strong>Amazon Alexa</strong> — voice control through emulated_hue bridge with input_boolean and automation triggers</li>
+            <li><strong>RF monitoring</strong> — logs all received 433MHz signals with protocol and code for device discovery</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Features</h2>
+        <ul>
+            <li><strong>Bedroom lights</strong> (protocol 1) — Toggle, ON, OFF via Home Assistant buttons and Alexa voice commands</li>
+            <li><strong>Living room lights</strong> (protocol 3) — 8 buttons: toggle, on, off, timers (30s/30min/60min)</li>
+            <li><strong>RF signal monitoring</strong> — daily counter sensor, last received code sensor, all signals logged for discovery</li>
+            <li><strong>Noise filtering</strong> — protocol 2 code=0x0 spurious signals filtered in lambda to reduce log clutter</li>
+            <li><strong>WiFi hardening</strong> — fast_connect, power_save_mode disabled, max TX power for stable connection</li>
+            <li><strong>3D printable case</strong> — parametric OpenSCAD enclosure with mounting posts, ventilation, and SMA antenna pass-through</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Hardware</h2>
+        <ul>
+            <li><strong>NodeMCU ESP8266 v2</strong> — WiFi microcontroller running ESPHome firmware</li>
+            <li><strong>CC1101 transceiver</strong> — 433.92MHz RF module with SMA antenna, connected via SPI (SCK, MISO, MOSI, CSN) plus GDO0 for data</li>
+            <li><strong>SPI wiring</strong> — SCK→D5, MISO→D6, MOSI→D7, CSN→D8, GDO0→D2 (shared RX/TX)</li>
+            <li><strong>Power</strong> — CC1101 runs at 3.3V from the NodeMCU regulator</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>3D Printed Case</h2>
+    </div>
+
+    <div class="image-container">
+        <img src="img/case-preview.png"
+            alt="3D printed case assembled preview — OpenSCAD render showing enclosure with lid, ventilation slots, and connector cutouts" class="center" loading="lazy">
+        <img src="img/case-print-layout.png"
+            alt="3D printed case print layout — bottom half with mounting posts and lid side by side for flat printing" class="center" loading="lazy">
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <ul>
+            <li><strong>Parametric OpenSCAD design</strong> — adjustable tolerances, wall thickness, and post dimensions</li>
+            <li><strong>Mounting posts</strong> for both NodeMCU (4 corners) and CC1101 (2 posts) with M2 screw holes</li>
+            <li><strong>Cutouts</strong> — micro-USB port for power/programming, SMA hole for external antenna</li>
+            <li><strong>Snap-fit lid</strong> with alignment lip, ventilation slots on all sides</li>
+            <li><strong>No supports needed</strong> — both parts print flat</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Technical Details</h2>
+        <ul>
+            <li><strong>Firmware:</strong> ESPHome 2025.12.0+ with native CC1101 component (YAML + C++ lambdas)</li>
+            <li><strong>RF protocol:</strong> 433.92MHz ASK/OOK, RC Switch protocols 1 and 3</li>
+            <li><strong>Communication:</strong> SPI bus for CC1101, encrypted native API for Home Assistant</li>
+            <li><strong>Voice control:</strong> emulated_hue bridge exposing input_boolean entities to Alexa</li>
+            <li><strong>Monitoring:</strong> WiFi signal sensor, uptime counter, RF signal counter (resets daily), last code text sensor</li>
+            <li><strong>3D case:</strong> OpenSCAD parametric design, ~90 x 30 x 16 mm external dimensions</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <p>Check out the project on GitHub: <a href="https://github.com/ArturKos/radio-controller" target="_blank">Radio Controller on GitHub</a></p>
+        <a href="../../index.html" class="back-to-portfolio">Back to Portfolio</a>
+    </div>
+<script src="../../js/lightbox.js"></script>
+</body>
+
+</html>
