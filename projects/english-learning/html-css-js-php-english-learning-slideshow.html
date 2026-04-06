@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16932754231"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-16932754231');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Learning Slideshow — Artur Kos</title>
+    <meta name="description"
+        content="Interactive English vocabulary slideshow — dark-themed SPA with Word of the Day, auto-advance timer, shuffle, and fullscreen. PHP image server, 575-word Polish–English dictionary.">
+    <meta name="keywords"
+        content="English learning, vocabulary, slideshow, HTML, CSS, JavaScript, PHP, Word of the Day, Polish English dictionary, language learning app">
+    <meta name="author" content="Artur Kos">
+    <link rel="canonical" href="https://arturkos.github.io/projects/english-learning/html-css-js-php-english-learning-slideshow.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="English Learning Slideshow — Artur Kos">
+    <meta property="og:description" content="Interactive English vocabulary slideshow — dark-themed SPA with Word of the Day, auto-advance timer, shuffle, and fullscreen. PHP image server, 575-word Polish–English dictionary.">
+    <meta property="og:url" content="https://arturkos.github.io/projects/english-learning/html-css-js-php-english-learning-slideshow.html">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="English Learning Slideshow — Artur Kos">
+    <meta name="twitter:description" content="Interactive English vocabulary slideshow — dark-themed SPA with Word of the Day, auto-advance timer, shuffle, and fullscreen. PHP image server, 575-word Polish–English dictionary.">
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body>
+    <div class="text-container">
+        <h1>English Learning Slideshow</h1>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Screenshot</h2>
+    </div>
+    <div class="image-container">
+        <img src="img/screenshot.png" alt="English Learning Slideshow app showing a grammar lesson card" class="center" loading="lazy">
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <p>
+            A self-hosted English vocabulary tool running on a local Apache/PHP server. The app displays
+            a full-screen slideshow of English learning images — grammar charts, vocabulary cards, and
+            phrase guides — advancing automatically every 60 seconds. A <strong>Word of the Day</strong>
+            widget picks a random entry from a 575-word Polish–English dictionary on every page load
+            or button press.
+        </p>
+        <p>
+            The interface is built as a single-page application with a dark, animated background featuring
+            a drifting grid and ambient glow effects. Images are served dynamically by a PHP backend that
+            scans the image directory and returns the list as JSON.
+        </p>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Features</h2>
+        <ul>
+            <li><strong>Auto-advance slideshow:</strong> Images rotate every 60 seconds with an animated progress bar</li>
+            <li><strong>Word of the Day:</strong> Random word drawn from a 575-entry Polish–English dictionary</li>
+            <li><strong>Shuffle:</strong> Randomise image order at any time</li>
+            <li><strong>Fullscreen mode:</strong> One-click distraction-free viewing</li>
+            <li><strong>Fade transitions:</strong> Smooth crossfade with background preloading</li>
+            <li><strong>Keyboard navigation:</strong> ← / → to browse, Space to pause, F for fullscreen</li>
+            <li><strong>Touch swipe:</strong> Swipe left/right on mobile devices</li>
+            <li><strong>Dark animated UI:</strong> Drifting grid background, ambient glow blobs, Inter + JetBrains Mono fonts</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Technical Details</h2>
+        <ul>
+            <li><strong>Frontend:</strong> HTML5, CSS3 (custom dark theme, CSS animations), Vanilla JavaScript</li>
+            <li><strong>Backend:</strong> PHP — scans image directory and returns file list as JSON</li>
+            <li><strong>Fonts:</strong> Inter, JetBrains Mono (Google Fonts)</li>
+            <li><strong>Images:</strong> 156 English learning JPEG photos</li>
+            <li><strong>Dictionary:</strong> 575 Polish–English word/phrase pairs in plain text</li>
+            <li><strong>Server:</strong> Apache + PHP on Raspberry Pi (local network)</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <p>Source code: <a href="https://github.com/ArturKos/english-learning" target="_blank">github.com/ArturKos/english-learning</a></p>
+        <a href="../../index.html" class="back-to-portfolio">Back to Portfolio</a>
+    </div>
+    <script src="../../js/lightbox.js"></script>
+</body>
+
+</html>
