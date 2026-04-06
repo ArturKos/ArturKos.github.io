@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16932754231"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-16932754231');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotoTracker — Motorcycle GPS Tracker — Artur Kos</title>
+    <meta name="description"
+        content="Motorcycle GPS tracker built on LilyGO T-SIM7000G (ESP32 + SIM7000G). Arduino firmware with live and batch tracking modes, SD offline buffer, and a PHP/MySQL/Leaflet web dashboard with ride replay, stats, and GPX export.">
+    <meta name="keywords"
+        content="GPS tracker, motorcycle, ESP32, SIM7000G, LilyGO, Arduino, IoT, PHP, MySQL, Leaflet, ride tracking, GPX">
+    <meta name="author" content="Artur Kos">
+    <link rel="canonical" href="https://arturkos.github.io/projects/mototracker/esp32-sim7000g-gps-tracker-motorcycle.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="MotoTracker — Motorcycle GPS Tracker — Artur Kos">
+    <meta property="og:description" content="Motorcycle GPS tracker on LilyGO T-SIM7000G (ESP32 + SIM7000G) with live/batch firmware and PHP/MySQL/Leaflet dashboard.">
+    <meta property="og:url" content="https://arturkos.github.io/projects/mototracker/esp32-sim7000g-gps-tracker-motorcycle.html">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="MotoTracker — Motorcycle GPS Tracker — Artur Kos">
+    <meta name="twitter:description" content="Motorcycle GPS tracker on LilyGO T-SIM7000G (ESP32 + SIM7000G) with live/batch firmware and PHP/MySQL/Leaflet dashboard.">
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body>
+    <div class="text-container">
+        <h1>MotoTracker — Motorcycle GPS Tracker</h1>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Screenshots</h2>
+    </div>
+    <div class="image-container">
+        <img src="img/screenshot.png" alt="MotoTracker web dashboard with Leaflet map and ride stats" class="center" loading="lazy">
+        <img src="img/lilygo_module.png" alt="LilyGO T-SIM7000G ESP32 + SIM7000G module" class="center" loading="lazy">
+        <img src="img/case_3d.png" alt="3D-printed power button cap for the enclosure" class="center" loading="lazy">
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <p>
+            A complete motorcycle GPS tracking system built around the <strong>LilyGO T-SIM7000G</strong> —
+            a compact board combining an ESP32 microcontroller with a SIM7000G cellular/GPS modem, an SD card slot,
+            and an 18650 battery holder. The tracker sends GPS coordinates, speed, temperature, and battery
+            voltage to a self-hosted server over 2G/NB-IoT/CAT-M cellular.
+        </p>
+        <p>
+            The <strong>MotoTracker</strong> web dashboard runs on a Raspberry Pi (Apache + PHP + MySQL) and displays
+            the day's route on an interactive Leaflet map, color-coded by speed. Rides can be replayed
+            in real time or exported as GPX files for use in Strava, Garmin Connect, or other apps.
+        </p>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Firmware Features</h2>
+        <ul>
+            <li><strong>Live mode:</strong> GPS always on, sends 1 point/second via HTTP GET with keep-alive TCP connection</li>
+            <li><strong>Batch mode:</strong> deep sleep 60 s between fixes, RTC memory batches 5 points per wake — low power</li>
+            <li><strong>SD offline buffer:</strong> up to 100 000 points (~27 h at 1 pt/s) stored on SD when network is unavailable; auto-recovered on reconnect</li>
+            <li><strong>Battery protection:</strong> auto-sleeps below 3.3 V to prevent over-discharge</li>
+            <li><strong>Compact HTTP protocol:</strong> short parameter names (k, v, la, lo, s, t, h, b, ts) to minimise cellular overhead</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Dashboard Features</h2>
+        <ul>
+            <li><strong>Leaflet map:</strong> route drawn as a polyline colour-coded green→red by speed</li>
+            <li><strong>Ride stats:</strong> total distance, duration, average and max speed, temperature, battery voltage</li>
+            <li><strong>Ride replay:</strong> animated playback with adjustable speed (1×–20×)</li>
+            <li><strong>Ride history:</strong> list of the last 50 rides with date, point count, and duration</li>
+            <li><strong>GPX export:</strong> download any day's ride as a standard GPX track file</li>
+            <li><strong>Live tracking:</strong> auto-refreshes every 2 s when viewing today's date</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Technical Details</h2>
+        <ul>
+            <li><strong>Hardware:</strong> LilyGO T-SIM7000G (ESP32 + SIM7000G, GPS 1 Hz, SD card, 18650 battery)</li>
+            <li><strong>Firmware:</strong> Arduino C++ — TinyGSM, ArduinoHttpClient</li>
+            <li><strong>Connectivity:</strong> 2G GSM / NB-IoT / CAT-M (HTTP, no TLS — avoids 2–5 s TLS overhead on SIM7000G)</li>
+            <li><strong>Backend:</strong> PHP 7.4+, MySQL 5.7+, Leaflet.js 1.9.4, Font Awesome 6.5</li>
+            <li><strong>Server:</strong> Raspberry Pi running Apache on local network with DDNS</li>
+            <li><strong>3D case:</strong> printable power button cap (STL) for mounting through an enclosure lid — PLA or PETG</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <p>Source code: <a href="https://github.com/ArturKos/MotoTracker" target="_blank">github.com/ArturKos/MotoTracker</a></p>
+        <a href="../../index.html" class="back-to-portfolio">Back to Portfolio</a>
+    </div>
+    <script src="../../js/lightbox.js"></script>
+</body>
+
+</html>
