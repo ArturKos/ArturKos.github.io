@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16932754231"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-16932754231');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xtreamer EtrayZ — Custom Debian NAS Firmware — Artur Kos</title>
+    <meta name="description"
+        content="Custom Debian 6 Squeeze firmware for Xtreamer EtrayZ NAS (ARM926EJ-S 183MHz). Features a web dashboard, web apps, updated SSH/TLS/download tools compiled natively on the device, and a one-command disk image restore.">
+    <meta name="keywords"
+        content="Xtreamer EtrayZ, NAS, ARM, Debian, embedded Linux, Dropbear, OpenSSL, aria2, custom firmware, ARM926EJ-S, kernel 2.6.24">
+    <meta name="author" content="Artur Kos">
+    <link rel="canonical" href="https://arturkos.github.io/projects/etrayz-debian/arm-nas-debian-custom-firmware-etrayz.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Xtreamer EtrayZ — Custom Debian NAS Firmware — Artur Kos">
+    <meta property="og:description" content="Custom Debian 6 Squeeze firmware for Xtreamer EtrayZ NAS. Web dashboard, web apps, updated SSH/TLS/download tools, disk image restore.">
+    <meta property="og:url" content="https://arturkos.github.io/projects/etrayz-debian/arm-nas-debian-custom-firmware-etrayz.html">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Xtreamer EtrayZ — Custom Debian NAS Firmware — Artur Kos">
+    <meta name="twitter:description" content="Custom Debian 6 Squeeze firmware for Xtreamer EtrayZ NAS. Web dashboard, web apps, updated SSH/TLS/download tools, disk image restore.">
+    <link rel="icon" type="image/svg+xml" href="../../img/favicon.svg">
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body>
+    <div class="text-container">
+        <h1>Xtreamer EtrayZ — Custom Debian NAS Firmware</h1>
+        <p class="project-badge">Embedded Linux / ARM</p>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Screenshots</h2>
+    </div>
+    <div class="image-container">
+        <img src="img/screenshot_dashboard.png" alt="EtrayZ web dashboard — CPU, RAM, disk bars, service cards" class="center" loading="lazy">
+        <img src="img/screenshot_dashboard_full.png" alt="EtrayZ dashboard full view with network panel and status indicators" class="center" loading="lazy">
+        <img src="img/screenshot_settings.png" alt="Settings panel with 11 configuration sections" class="center" loading="lazy">
+        <img src="img/screenshot_aria2.png" alt="aria2 download manager web interface" class="center" loading="lazy">
+        <img src="img/screenshot_filemgr.png" alt="Web file manager with breadcrumb navigation" class="center" loading="lazy">
+        <img src="img/screenshot_website.png" alt="Personal website hosted on the NAS" class="center" loading="lazy">
+        <img src="img/screenshot_webssh.png" alt="Browser-based web terminal" class="center" loading="lazy">
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <p>
+            Complete custom firmware for the <strong>Xtreamer EtrayZ NAS</strong> — a 2010-era
+            network-attached storage device with an <strong>OX810SE ARM926EJ-S CPU at 183 MHz</strong>,
+            128 MB RAM, and kernel 2.6.24.4. The original firmware was minimal and unmaintained;
+            this project replaces it with a fully configured <strong>Debian 6 Squeeze</strong> system
+            featuring a web dashboard, six web applications, and critical security tools updated to
+            modern versions compiled natively on the device.
+        </p>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Web Dashboard &amp; Applications</h2>
+        <ul>
+            <li><strong>Dashboard (port 70)</strong> — live CPU%, RAM, dual HDD temperatures, network speed, disk storage bars, service cards with links, reboot/shutdown buttons</li>
+            <li><strong>Settings panel</strong> — 11 configuration sections (fan, USB, SATA bay 2, Samba, Transmission, DLNA, aria2, SSH, web server, development, manuals)</li>
+            <li><strong>aria2 download manager</strong> — XML-RPC web UI with add/pause/remove downloads, progress bars, premium account profiles</li>
+            <li><strong>Web file manager</strong> — browse, upload, download and delete files on <code>/home</code></li>
+            <li><strong>Photo gallery</strong> — thumbnail grid with lightbox viewer and subfolder support</li>
+            <li><strong>Web terminal</strong> — stateless browser shell with command history and base64 output encoding</li>
+            <li><strong>Monit dark proxy</strong> — dark-themed reverse proxy to the Monit service monitor</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Services</h2>
+        <ul>
+            <li><strong>Dropbear 2025.89</strong> SSH server — ed25519, ECDSA, ChaCha20; connects from modern clients without legacy flags</li>
+            <li><strong>Samba</strong> — 3 Windows file shares (home, public, downloads) + optional second SATA bay share</li>
+            <li><strong>Transmission</strong> — BitTorrent client with web UI</li>
+            <li><strong>MiniDLNA</strong> — DLNA/UPnP media server</li>
+            <li><strong>Monit</strong> — service watchdog with auto-restart for all daemons</li>
+            <li><strong>smartd</strong> — SMART disk health monitoring</li>
+            <li><strong>lighttpd</strong> — web server on port 70 (dashboard + apps) and port 80 (personal site)</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Updated Packages — Compiled Natively on the NAS</h2>
+        <p>
+            Debian Squeeze (2011) ships with TLS 1.0-only tools and an ancient SSH server.
+            All critical packages were compiled natively on the 183 MHz ARM — no cross-compiler needed:
+        </p>
+        <ul>
+            <li><strong>OpenSSL 1.1.1w</strong> — TLS 1.2/1.3 support; used as shared library by wget, curl, aria2</li>
+            <li><strong>Dropbear 2025.89</strong> — modern SSH (ed25519, ECDSA, ChaCha20)</li>
+            <li><strong>wget 1.20.3</strong> — TLS 1.2+ HTTPS downloads (Squeeze wget fails on modern sites)</li>
+            <li><strong>curl 7.88.1</strong> — last version compatible with kernel 2.6.24 (curl 8.x requires kernel 2.6.27+)</li>
+            <li><strong>aria2 1.15.1</strong> — last version buildable with GCC 4.4.5; required an EVP_MD_CTX opaque-type patch for OpenSSL 1.1.x</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Technical Details</h2>
+        <ul>
+            <li><strong>Hardware:</strong> OX810SE ARM926EJ-S 183 MHz, 128 MB RAM, kernel 2.6.24.4</li>
+            <li><strong>OS:</strong> Debian 6 Squeeze (armel) — only distro with glibc compatible with kernel 2.6.24</li>
+            <li><strong>Disk layout:</strong> GPT, boot files at raw sector offsets, md0 (ext3 rootfs), md1 (swap), XFS /home</li>
+            <li><strong>Compiler:</strong> GCC 4.4.5 natively on the device — no Docker toolchain for user-space builds</li>
+            <li><strong>Build scripts:</strong> <code>packages/build-*.sh</code> — reproducible native builds for all updated packages</li>
+            <li><strong>Restore:</strong> <code>restore-from-image.sh</code> — writes complete disk image (GPT + boot + rootfs + swap) and creates fresh /home partition</li>
+            <li><strong>Second SATA bay:</strong> auto-detects, auto-formats as XFS, mounts, and adds Samba share</li>
+        </ul>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Disk Image Restore</h2>
+        <p>The project ships a complete disk image (<code>etrayz-system.img.xz</code>, ~838 MB) that restores
+        the entire system in one command — GPT partition table, boot files at correct raw sector offsets,
+        md0 rootfs, and md1 swap. The /home XFS partition is created fresh to fill the rest of the disk.</p>
+        <pre style="text-align: left; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; overflow-x: auto; color: #8ec8ff;">sudo bash restore-from-image.sh etrayz-system.img.xz /dev/sdX</pre>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <p>Check out the project on GitHub: <a href="https://github.com/ArturKos/etrayz-debian" target="_blank">etrayz-debian on GitHub</a></p>
+        <a href="../../index.html" class="back-to-portfolio">Back to Portfolio</a>
+    </div>
+    <script src="../../js/lightbox.js"></script>
+</body>
+
+</html>
