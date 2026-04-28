@@ -67,9 +67,10 @@
             A polished C++ implementation of the classic Arkanoid arcade game, built with
             <strong>Allegro 5</strong> for graphics, audio, and input handling. The player controls
             a paddle to deflect a ball into a <strong>10x5 grid of destructible tiles</strong>, each
-            with an HP system requiring up to 3 hits to destroy. The game features a full scoring
-            system, a lives mechanic starting at 3 lives, and three distinct power-ups that add
-            strategic depth to the gameplay.
+            with an HP system requiring up to 3 hits to destroy. The game wraps the gameplay in a
+            full retro experience: an animated CRT-styled intro screen, a name input prompt, level
+            progression with freshly randomized grids, three distinct power-ups, particle effects,
+            and a persistent top-10 high score table.
         </p>
     </div>
 
@@ -77,12 +78,17 @@
         <div class="text-overlay"></div>
         <h2>Features</h2>
         <ul>
-            <li><strong>Destructible tile grid:</strong> 10x5 layout with per-tile HP system requiring up to 3 hits</li>
-            <li><strong>3 power-ups:</strong> wider paddle, slow ball, and extra life — each with a 600-frame duration timer and on-screen progress bar</li>
-            <li><strong>Particle explosion system:</strong> 24 particles per tile with gravity simulation and fade effects</li>
-            <li><strong>Ball motion trail:</strong> 12-point trailing effect for visual polish</li>
-            <li><strong>Screen shake:</strong> Impact-triggered camera shake on collisions</li>
-            <li><strong>Score tracking and lives system:</strong> 3 initial lives with score persistence</li>
+            <li><strong>Retro CRT intro screen:</strong> falling pixel-art title bricks, rainbow shimmer, starfield background, bouncing ball, decorative bottom bricks</li>
+            <li><strong>Name input screen</strong> with blinking cursor and CRT scanline overlay</li>
+            <li><strong>Destructible tile grid:</strong> 10x5 layout with per-tile HP system (up to 3 HP), beveled rendering with highlight/shadow edges and visible crack lines as tiles take damage</li>
+            <li><strong>Level progression:</strong> clearing all tiles advances to the next level with a freshly randomized grid</li>
+            <li><strong>3 power-ups</strong> with 25% drop chance: wider paddle, slow ball, and extra life — each with a 600-frame duration timer and on-screen progress bar</li>
+            <li><strong>Particle explosion system:</strong> per-tile particles with gravity simulation, color variation, and fade effects</li>
+            <li><strong>Ball motion trail:</strong> fading tail rendered behind the ball for visual polish</li>
+            <li><strong>Screen shake</strong> triggered on tile destruction for impact</li>
+            <li><strong>Paddle angle control:</strong> ball angle changes based on where it strikes the paddle (left third, center, right third)</li>
+            <li><strong>Persistent high scores:</strong> top-10 leaderboard saved to <code>scores.dat</code> in binary format with animated row fade-in</li>
+            <li><strong>Resizable window</strong> with aspect-ratio-preserving scaling and fullscreen toggle (F)</li>
             <li><strong>Cross-platform:</strong> Runs on both Linux and Windows</li>
         </ul>
     </div>

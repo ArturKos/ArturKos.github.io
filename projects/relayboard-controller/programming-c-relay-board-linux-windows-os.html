@@ -14,18 +14,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relay Board Controller — Artur Kos</title>
     <meta name="description"
-        content="Cross-platform 8-channel relay board controller with custom serial protocol and CRC8 validation. Windows GUI (C++ Builder) and Linux CLI (C, CMake) for managing relay power strips via serial/USB.">
+        content="Cross-platform 8-channel relay board controller. Linux CLI in C with native termios, CRC8-validated 5-byte serial protocol at 57600 baud, state persistence and systemd boot restore. Windows GUI in C++ Builder with scheduled actions, TCP remote control, system tray, and autostart.">
     <meta name="keywords"
-        content="relay board, serial communication, CRC8, C programming, C++ Builder, embedded systems, Linux, Windows, CMake, hardware control, USB, UART, cross-platform, IoT">
+        content="relay board, serial communication, CRC8, C programming, C++ Builder, embedded systems, Linux, Windows, CMake, hardware control, USB, UART, cross-platform, IoT, systemd, TCP, scheduling, system tray">
     <meta name="author" content="Artur Kos">
     <link rel="canonical" href="https://arturkos.github.io/projects/relayboard-controller/programming-c-relay-board-linux-windows-os.html">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Relay Board Controller — Artur Kos">
-    <meta property="og:description" content="Cross-platform 8-channel relay board controller with custom serial protocol and CRC8 validation. Windows GUI and Linux CLI.">
+    <meta property="og:description" content="Cross-platform 8-channel relay board controller. Linux CLI with state persistence + systemd, CRC8-validated 5-byte protocol. Windows GUI with scheduling, TCP remote, and system tray.">
     <meta property="og:url" content="https://arturkos.github.io/projects/relayboard-controller/programming-c-relay-board-linux-windows-os.html">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Relay Board Controller — Artur Kos">
-    <meta name="twitter:description" content="Cross-platform 8-channel relay board controller with custom serial protocol and CRC8 validation. Windows GUI and Linux CLI.">
+    <meta name="twitter:description" content="Cross-platform 8-channel relay board controller. Linux CLI with state persistence + systemd, CRC8-validated 5-byte protocol. Windows GUI with scheduling, TCP remote, and system tray.">
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
 
@@ -42,23 +42,88 @@
         <div class="text-overlay"></div>
         <p>
             A <strong>cross-platform controller</strong> for managing an <strong>8-channel relay power strip</strong>
-            via serial/USB connection. Implements a custom binary protocol at 57600 baud with
-            <strong>CRC8 checksums</strong> for reliable communication. Includes a Windows GUI application
-            with network remote control and a Linux command-line interface.
+            over serial/USB. Implements a hand-rolled binary protocol at 57600 baud with
+            <strong>CRC8 checksums</strong> for reliable communication. The repository ships two parallel
+            front-ends: a small Linux CLI built in C with CMake, and a feature-rich Windows GUI built in
+            C++ Builder 6.0 with VCL.
+        </p>
+        <p>
+            The Linux side is intentionally minimal but production-ready: native <code>termios</code> for
+            serial configuration (no shell-out to <code>stty</code>, no command-injection surface), reply
+            validation on every received frame, and a <strong>state file + systemd unit</strong> so the
+            board's last known configuration is automatically restored on boot or after a power loss.
+            The Windows side adds a tray-resident GUI with per-relay scheduling, a TCP server for remote
+            control, and Windows autostart via the registry.
         </p>
     </div>
 
     <div class="text-container">
         <div class="text-overlay"></div>
-        <h2>Features</h2>
+        <h2>Serial Protocol</h2>
+        <p>All communication uses a fixed 5-byte frame at <strong>57600 baud, 8N1</strong>:</p>
         <ul>
-            <li><strong>Custom binary serial protocol</strong> at 57600 baud (8 data bits, no parity, 1 stop bit)</li>
-            <li><strong>CRC8 checksums</strong> on all messages for data integrity validation</li>
-            <li><strong>5-byte frame format:</strong> sync byte (0x55), length, command, data, CRC8</li>
-            <li><strong>Command set:</strong> Set all relays, Turn on/off individual relay (0-7), Get relay status</li>
-            <li><strong>Windows GUI</strong> with VCL interface and network socket support for remote control</li>
-            <li><strong>Linux CLI</strong> with configuration file for relay labels and device path</li>
-            <li><strong>Human-readable output</strong> showing relay states with custom labels from config file</li>
+            <li><strong>Byte 0:</strong> <code>0x55</code> — sync byte (start of frame)</li>
+            <li><strong>Byte 1:</strong> <code>0x01</code> — device address (USB/RS-232)</li>
+            <li><strong>Byte 2:</strong> command — <code>'S'</code> set, <code>'O'</code> on, <code>'F'</code> off, <code>'G'</code> get status</li>
+            <li><strong>Byte 3:</strong> data — relay bitmask (Set/Get) or relay index 0–7 (On/Off)</li>
+            <li><strong>Byte 4:</strong> CRC8 over bytes 1–3 using a 256-byte lookup table</li>
+        </ul>
+        <p>
+            The board responds to a <strong>Get</strong> command with a frame whose command byte is
+            <code>'R'</code> and whose data byte is the relay states as a bitmask (bit 0 = relay 1,
+            bit 7 = relay 8). Every received frame is validated for sync byte, device address, command
+            byte, and CRC8 before its contents are trusted.
+        </p>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Linux CLI</h2>
+        <ul>
+            <li><strong>Native termios serial configuration</strong> — no shell-out, no command-injection surface</li>
+            <li><strong>State persistence:</strong> every change is written to <code>power_strip.state</code> as a single hex byte; for single-relay operations the program first reads the board's own state with a <code>G</code> request and then sends the updated mask, keeping the file consistent with hardware even if it was edited or deleted</li>
+            <li><strong>Restore command:</strong> <code>./power_strip restore</code> reads the saved bitmask and reapplies it in a single <code>S</code> frame — perfect for systemd boot restore</li>
+            <li><strong>Configurable relay names</strong> via plain-text <code>power_strip.conf</code> (line 1 = serial device, lines 2–9 = human-readable labels)</li>
+            <li><strong>Strict reply validation:</strong> sync, address, command, and CRC8 all checked before a reply is accepted</li>
+            <li><strong>Exit code <code>1</code> on any error</strong> — bad arguments, missing config, serial I/O failure, malformed reply, CRC mismatch — with details on stderr</li>
+        </ul>
+        <pre style="text-align: left; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; overflow-x: auto; color: #8ec8ff;">./power_strip status        # query and refresh power_strip.state
+./power_strip allon         # turn all relays on
+./power_strip alloff        # turn all relays off
+./power_strip 3 on          # turn relay 3 on
+./power_strip 3 off         # turn relay 3 off
+./power_strip restore       # reapply last saved state</pre>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>systemd Boot Restore</h2>
+        <p>A small oneshot unit reapplies the last-known relay state on every boot — invaluable after a
+        power loss, since the board itself does not preserve state across reboots.</p>
+        <pre style="text-align: left; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; overflow-x: auto; color: #8ec8ff;">[Unit]
+Description=Restore RelayBoard relay state on boot
+After=local-fs.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/power_strip
+ExecStart=/opt/power_strip/power_strip restore
+
+[Install]
+WantedBy=multi-user.target</pre>
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
+        <h2>Windows GUI</h2>
+        <ul>
+            <li><strong>Per-relay toggle buttons</strong> with state indication and configurable labels</li>
+            <li><strong>Scheduled actions:</strong> per-relay day-of-week + time scheduling (turn relays on/off automatically)</li>
+            <li><strong>TCP server</strong> for remote network control of the relay board, with obfuscated-password authentication</li>
+            <li><strong>Standalone TCP client</strong> (separate executable) for controlling the relay board over the network from another machine</li>
+            <li><strong>System tray support</strong> — minimize to tray, popup menu for quick relay toggling without opening the main window</li>
+            <li><strong>COM port auto-detection</strong> with a configurable selector</li>
+            <li><strong>Windows autostart</strong> option via registry integration</li>
         </ul>
     </div>
 
@@ -66,11 +131,11 @@
         <div class="text-overlay"></div>
         <h2>Technical Details</h2>
         <ul>
-            <li><strong>Windows version:</strong> C++ Builder 6.0 with VCL, socket library for remote control, hash-based authentication</li>
-            <li><strong>Linux version:</strong> C with POSIX termios for serial communication, CMake 3.2+ build system</li>
-            <li><strong>Serial protocol:</strong> Custom binary commands — 'S' (set all), 'O' (on), 'F' (off), 'G' (get status), 'R' (response)</li>
-            <li><strong>CRC8 implementation:</strong> Lookup table and bit-by-bit versions, seed 0x00, excludes sync byte</li>
-            <li><strong>Configuration:</strong> INI-style config file mapping relay numbers to human-readable labels</li>
+            <li><strong>Linux:</strong> C99, CMake 3.10+, POSIX <code>termios</code>, <code>-Wall -Wextra -pedantic</code> warning-clean</li>
+            <li><strong>Windows GUI:</strong> C++ Builder 6.0 with VCL; sockets for TCP server; custom hash for password obfuscation</li>
+            <li><strong>Repository layout:</strong> <code>linux/</code> (CLI), <code>caly program/</code> (Windows GUI), <code>klient sterowanie/</code> (Windows network client), and <code>Specyfikacja protokolu.txt</code> (Polish protocol spec)</li>
+            <li><strong>CRC8 implementation:</strong> 256-byte lookup table, applied to bytes 1–3 (sync byte excluded)</li>
+            <li><strong>Configuration:</strong> Linux uses a plain-text config; Windows GUI persists settings via the registry and INI files</li>
         </ul>
     </div>
 
@@ -82,9 +147,10 @@
 mkdir build && cd build
 cmake ..
 make
-./power_strip</pre>
+./power_strip status</pre>
         <h3 style="color: #8ec8ff;">Windows</h3>
-        <p>Open the <code>.bpr</code> project file in C++ Builder 6.0 and build.</p>
+        <p>Open the <code>.bpr</code> project file in C++ Builder 6.0 and build (<code>Project → Build All</code>).
+        The standalone network client lives in <code>klient sterowanie/</code> as a separate <code>.bpr</code>.</p>
     </div>
 
     <div class="text-container">

@@ -41,8 +41,9 @@
         <p>
             A multithreaded per-core CPU usage monitor for Linux that reads statistics directly from
             <strong>/proc/stat</strong> and displays real-time utilization percentages. The program uses a
-            <strong>producer-consumer architecture</strong> with four dedicated threads, mutex-protected shared
-            data structures, and a watchdog system for thread health monitoring.
+            <strong>producer-consumer architecture</strong> with five dedicated threads, mutex-protected shared
+            data structures, an asynchronous logger writing to <code>cut.log</code>, and a watchdog system
+            for thread health monitoring.
         </p>
     </div>
 
@@ -50,11 +51,13 @@
         <div class="text-overlay"></div>
         <h2>Features</h2>
         <ul>
-            <li><strong>Producer-consumer pipeline</strong> with 4 dedicated threads: reader, analyzer, printer, and watchdog</li>
+            <li><strong>Producer-consumer pipeline</strong> with 5 dedicated threads: reader, analyzer, printer, logger, and watchdog</li>
             <li><strong>Real-time monitoring</strong> of individual CPU core utilization from /proc/stat</li>
+            <li><strong>Ring buffer queue</strong> for CPU statistics with configurable depth (default: 5 snapshots)</li>
             <li><strong>Mutex synchronization</strong> for thread-safe access to shared data structures</li>
-            <li><strong>Watchdog thread</strong> monitoring thread health with timestamp tracking and heartbeat detection</li>
-            <li><strong>Graceful shutdown</strong> via SIGTERM signal handling</li>
+            <li><strong>Watchdog thread</strong> with heartbeat tracking — detects crashes within 2 seconds and triggers graceful shutdown</li>
+            <li><strong>Asynchronous logger</strong> — flushes events from a 50-entry message queue to <code>cut.log</code></li>
+            <li><strong>Graceful shutdown</strong> via SIGTERM signal handling with proper thread detachment and cleanup</li>
             <li><strong>Dynamic core detection</strong> — automatically adapts to the number of CPU cores</li>
             <li><strong>Unit tests</strong> for core calculation functions</li>
             <li><strong>Zero memory leaks</strong> verified with Valgrind (86 allocs, 86 frees)</li>
@@ -67,7 +70,7 @@
         <ul>
             <li><strong>Language:</strong> C with POSIX pthreads</li>
             <li><strong>Build system:</strong> Makefile with gcc</li>
-            <li><strong>Thread architecture:</strong> Reader parses /proc/stat, Analyzer computes percentages, Printer formats output, Watchdog monitors heartbeats</li>
+            <li><strong>Thread architecture:</strong> Reader (200 ms) parses /proc/stat, Analyzer (200 ms) computes percentages, Printer (1 s) formats output, Logger (200 ms) flushes <code>cut.log</code>, Watchdog (200 ms) monitors heartbeats</li>
             <li><strong>Synchronization:</strong> Mutex-protected shared queues between pipeline stages</li>
             <li><strong>Signal handling:</strong> SIGTERM triggers clean thread shutdown and resource deallocation</li>
         </ul>
