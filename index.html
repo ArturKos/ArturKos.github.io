@@ -238,7 +238,7 @@
                 <div class="portfolio-item scroll-reveal">
                     <div class="portfolio-tags"><span>C</span><span>C++</span><span>Linux</span></div>
                     <h3>CHIP-8 Emulator</h3>
-                    <p>Faithful CHIP-8 processor emulator in C/C++ with Allegro5 for graphics, sound, and input. Interprets opcodes, manages memory, display, and timers to run classic retro ROMs.</p>
+                    <p>Faithful CHIP-8 emulator in C++17 with two frontends: Allegro 5 on Linux and native Win32 (GDI + WinMM) on Windows with zero external dependencies. Implements the full 35-opcode set, 64×32 display, dual timers, and ROM loading.</p>
                 </div>
             </a>
             <a href="projects/cpu-usage-tracker/pthread-programming-linux-gcc-c-programming-multithread.html"
@@ -254,7 +254,7 @@
                 <div class="portfolio-item scroll-reveal">
                     <div class="portfolio-tags"><span>C</span><span>Embedded</span><span>IoT</span></div>
                     <h3>Weather Station</h3>
-                    <p>IoT system monitoring indoor/outdoor temperature and humidity. ESP8266 with DHT11/DHT22 sensors, Raspberry Pi 4 server, PHP+MySQL backend, web dashboard, Android app, and Windows 10 widget.</p>
+                    <p>IoT system monitoring indoor/outdoor temperature and humidity. ESP8266 with DHT11/DHT22 sensors, Raspberry Pi 4 server, PHP+MySQL backend, web dashboard, Android app, Windows 10 Rainmeter widget, and a 7-day forecast dashboard built on weighted historical averages blended with recent trend extrapolation (Chart.js, dark theme).</p>
                 </div>
             </a>
             <a href="projects/radio-controller/esphome-cc1101-esp8266-433mhz-home-assistant-alexa-rf-smart-home.html"
@@ -286,7 +286,7 @@
                 <div class="portfolio-item scroll-reveal">
                     <div class="portfolio-tags"><span>C++</span><span>Linux</span><span>Game</span></div>
                     <h3>Arkanoid Game</h3>
-                    <p>Classic Arkanoid built in C++ with Allegro5. Features multiple levels, power-ups, and a scoring system. Demonstrates OOP principles and real-time graphics rendering.</p>
+                    <p>Classic Arkanoid built in C++ with Allegro 5. Features a retro CRT intro, particle effects, ball trail, screen shake, three power-up types, multiple levels, and persistent high scores.</p>
                 </div>
             </a>
             <a href="projects/puzzle-game/cpp-borland-builder-programming-game-windows-gdi.html"
@@ -326,7 +326,7 @@
                 <div class="portfolio-item scroll-reveal">
                     <div class="portfolio-tags"><span>C++</span><span>Embedded</span><span>IoT</span></div>
                     <h3>MotoTracker</h3>
-                    <p>Motorcycle GPS tracker on LilyGO T-SIM7000G (ESP32 + SIM7000G). Arduino firmware with live/batch tracking modes and SD offline buffer. PHP/MySQL/Leaflet dashboard with ride replay, stats, and GPX export. Self-hosted on Raspberry Pi.</p>
+                    <p>Multi-device, multi-user GPS tracking dashboard. LilyGO T-SIM7000G firmware (live/batch + SD offline buffer) plus a PHP/MySQL/Leaflet web app with admin panel, Traccar/Home Assistant integration, OSRM road-snap and interpolation, and password-less read-only embed tokens for HA iframes. Self-hosted on Raspberry Pi.</p>
                 </div>
             </a>
         </div>
@@ -347,25 +347,25 @@
                 <li><a href="https://github.com/intive/patronage20-embedded/tree/master/libraries/TemperatureSensor">ESP8266 temperature sensor library with MQTT (Intive Patronage 2020)</a></li>
                 <li><a href="https://github.com/intive/patronage20-embedded/tree/master/libraries/LedControlerRGB">ESP8266 RGB LED strip controller with MQTT (Intive Patronage 2020)</a></li>
                 <li><a href="https://github.com/ArturKos/puzzle">Puzzle game in C++ Builder 6.0 — engineering thesis project</a></li>
-                <li><a href="https://github.com/ArturKos/arkanoid">Arkanoid game in C++ with Allegro5 — levels, power-ups, scoring</a></li>
-                <li><a href="https://github.com/ArturKos/Steganography">Steganography tool — hide text in images with password protection (C#)</a></li>
-                <li><a href="https://github.com/ArturKos/HTTPServer">Simple HTTP server implementation</a></li>
+                <li><a href="https://github.com/ArturKos/arkanoid">Arkanoid — CRT intro, particles, ball trail, power-ups, persistent high scores (C++, Allegro 5)</a></li>
+                <li><a href="https://github.com/ArturKos/Steganography">Steganography tool — AES-256-CBC + SHA-512 + PBKDF2, hides text in pixel LSBs (C#, Windows Forms)</a></li>
+                <li><a href="https://github.com/ArturKos/HTTPServer">Multi-process HTTP/1.1 server with CGI/1.1 + PHP-CGI, path-traversal hardening, GoogleTest (C, CMake)</a></li>
                 <li><a href="https://github.com/ArturKos/Intive-PATRONAGE-2020-Szczecin-Projekt-0">Intive Patronage 2020 — TCP server, heapsort, spiral matrix, 64-bit multiplication (C, Embedded)</a></li>
                 <li><a href="https://github.com/ArturKos/Intive-PARONAGE-2018-Szczecin-Projekt-0">Intive Patronage 2018 — Android splash screen app (Java)</a></li>
-                <li><a href="https://github.com/ArturKos/poweroff">Automatic system shutdown utility for Windows</a></li>
+                <li><a href="https://github.com/ArturKos/poweroff">Windows shutdown scheduler — testable C++ core with GoogleTest, legacy C++ Builder 6 VCL UI</a></li>
                 <li><a href="https://github.com/ArturKos/modplay">Delphi component for bass.dll audio library</a></li>
-                <li><a href="https://github.com/ArturKos/b64decode">Base64 encoder/decoder for Windows</a></li>
-                <li><a href="https://github.com/ArturKos/MatrixMultiplication">Matrix multiplication program for Linux</a></li>
-                <li><a href="https://github.com/ArturKos/EmailNotifier">Email notification CLI tool for Linux</a></li>
-                <li><a href="https://github.com/ArturKos/FTPmirror">FTP mirror/download CLI tool for Linux</a></li>
-                <li><a href="https://github.com/ArturKos/GetEmailsAttachement">Email attachment downloader CLI for Linux</a></li>
-                <li><a href="https://github.com/ArturKos/WordGenerator">Word and anagram generator for Windows</a></li>
+                <li><a href="https://github.com/ArturKos/b64decode">Base64 file decoder — C++17 library-first design with constant-time lookup, GoogleTest, Doxygen (CMake)</a></li>
+                <li><a href="https://github.com/ArturKos/MatrixMultiplication">1000×1000 matrix multiplication — sequential, OpenMP parallel, and Pluto polyhedral-tiled variants with benchmarking (C)</a></li>
+                <li><a href="https://github.com/ArturKos/EmailNotifier">POP3 new-mail notifier — raw sockets, UIDL diff, ncurses UI, GoogleTest with mock server (C, CMake)</a></li>
+                <li><a href="https://github.com/ArturKos/FTPmirror">FTP mirror — passive-mode, recursive, hand-rolled RFC 959 protocol, 31 GoogleTest cases (C, CMake)</a></li>
+                <li><a href="https://github.com/ArturKos/GetEmailsAttachement">POP3 email client — MIME multipart parsing and Base64 decoder, GoogleTest with loopback fake server (C, CMake)</a></li>
+                <li><a href="https://github.com/ArturKos/WordGenerator">Lexicographic word enumerator — C library + CLI, iterative counter, GoogleTest, Doxygen (CMake)</a></li>
                 <li><a href="https://github.com/ArturKos/Lotto">Lottery analysis and drawing program</a></li>
-                <li><a href="https://github.com/ArturKos/Gallery">PHP image gallery with folder browsing</a></li>
+                <li><a href="https://github.com/ArturKos/Gallery">PHP image gallery — per-user data isolation, BCrypt + CSRF, path-traversal hardening, PHPUnit, PHPStan level 5</a></li>
                 <li><a href="https://github.com/ArturKos/english-learning">English learning slideshow — dark-themed SPA, Word of the Day, PHP image server, 575-word Polish–English dictionary</a></li>
-                <li><a href="https://github.com/ArturKos/MotoTracker">MotoTracker — ESP32+SIM7000G motorcycle GPS tracker, live/batch firmware, SD buffer, PHP/MySQL/Leaflet dashboard, GPX export</a></li>
+                <li><a href="https://github.com/ArturKos/MotoTracker">MotoTracker — multi-device, multi-user GPS tracking dashboard with admin panel, Traccar/HA integration, OSRM road-snap, and HA iframe embed tokens</a></li>
                 <li><a href="https://badaniapsychologiczneszczecin.github.io/">Psychology clinic website — HTML/CSS/JS, responsive, Schema.org, Google Maps</a></li>
-                <li><a href="https://github.com/ArturKos/Thumbgen">Thumbnail generator with batch resizing and cropping (C++ Builder)</a></li>
+                <li><a href="https://github.com/ArturKos/Thumbgen">Thumbnail generator — portable C++17 core with GoogleTest paired with a C++ Builder 6 / GDI+ Windows GUI</a></li>
                 <li><a href="https://github.com/ArturKos/CallerID">CallerID — real-time incoming call identification with overlay service (Java, Android)</a></li>
             </ul>
         </div>
