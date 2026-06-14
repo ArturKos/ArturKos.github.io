@@ -52,6 +52,17 @@
 
     <div class="text-container">
         <div class="text-overlay"></div>
+        <h2>Attract Mode (In-Game Demo)</h2>
+        <p>After a few seconds of inactivity on the intro screen (or when launched with
+            <code>--demo</code>), the game plays itself: the paddle auto-tracks the ball and
+            grabs falling power-ups.</p>
+    </div>
+    <div class="image-container">
+        <img src="img/demo.gif" alt="Arkanoid attract mode demo: the paddle plays itself and catches power-ups" class="center" loading="lazy">
+    </div>
+
+    <div class="text-container">
+        <div class="text-overlay"></div>
         <h2>Screenshots</h2>
     </div>
     <div class="image-container">
@@ -91,7 +102,8 @@
             <li><strong>Screen shake</strong> triggered on tile destruction for impact</li>
             <li><strong>Paddle angle control:</strong> ball angle changes based on where it strikes the paddle (left third, center, right third)</li>
             <li><strong>Persistent high scores:</strong> top-10 leaderboard saved to <code>scores.dat</code> in binary format with animated row fade-in</li>
-            <li><strong>Resizable window</strong> with aspect-ratio-preserving scaling and fullscreen toggle (F)</li>
+            <li><strong>Resizable window</strong> with a logical render buffer scaled to the display, plus a stretch-to-fill fullscreen toggle (F)</li>
+            <li><strong>Attract mode:</strong> after inactivity on the intro (or with <code>--demo</code>) the game plays itself — the paddle auto-tracks the ball and collects falling power-ups</li>
             <li><strong>Cross-platform:</strong> Runs on both Linux and Windows</li>
         </ul>
     </div>
