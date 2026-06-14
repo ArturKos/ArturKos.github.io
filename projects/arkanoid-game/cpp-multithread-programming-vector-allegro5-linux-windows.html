@@ -14,18 +14,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arkanoid Game — Artur Kos</title>
     <meta name="description"
-        content="Classic Arkanoid arcade game built with C++ and Allegro 5. Features a 10x5 destructible tile grid with HP system, 3 power-ups, particle explosions, ball motion trail, screen shake effects, and cross-platform support for Linux and Windows.">
+        content="Classic Arkanoid arcade game built with C++ and Allegro 5. Features a 10x5 destructible tile grid with HP system, 5 power-ups (including multiball and fireball), retro sound effects, custom file-based levels, pause, particle explosions, ball motion trail, screen shake effects, and cross-platform support for Linux and Windows.">
     <meta name="keywords"
-        content="Arkanoid, C++, Allegro 5, game development, particle effects, power-ups, breakout, arcade game, Linux, Windows, CMake, cross-platform">
+        content="Arkanoid, C++, Allegro 5, game development, particle effects, power-ups, multiball, fireball, sound effects, breakout, arcade game, Linux, Windows, CMake, cross-platform">
     <meta name="author" content="Artur Kos">
     <link rel="canonical" href="https://arturkos.github.io/projects/arkanoid-game/cpp-multithread-programming-vector-allegro5-linux-windows.html">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Arkanoid Game — Artur Kos">
-    <meta property="og:description" content="Classic Arkanoid arcade game built with C++ and Allegro 5. Destructible tiles with HP system, 3 power-ups, particle explosions, ball trail, and screen shake. Cross-platform for Linux and Windows.">
+    <meta property="og:description" content="Classic Arkanoid arcade game built with C++ and Allegro 5. Destructible tiles with HP system, 5 power-ups (multiball, fireball), retro sound effects, custom file-based levels, particle explosions, ball trail, and screen shake. Cross-platform for Linux and Windows.">
     <meta property="og:url" content="https://arturkos.github.io/projects/arkanoid-game/cpp-multithread-programming-vector-allegro5-linux-windows.html">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Arkanoid Game — Artur Kos">
-    <meta name="twitter:description" content="Classic Arkanoid arcade game built with C++ and Allegro 5. Destructible tiles with HP system, 3 power-ups, particle explosions, ball trail, and screen shake. Cross-platform for Linux and Windows.">
+    <meta name="twitter:description" content="Classic Arkanoid arcade game built with C++ and Allegro 5. Destructible tiles with HP system, 5 power-ups (multiball, fireball), retro sound effects, custom file-based levels, particle explosions, ball trail, and screen shake. Cross-platform for Linux and Windows.">
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
 
@@ -69,8 +69,9 @@
             a paddle to deflect a ball into a <strong>10x5 grid of destructible tiles</strong>, each
             with an HP system requiring up to 3 hits to destroy. The game wraps the gameplay in a
             full retro experience: an animated CRT-styled intro screen, a name input prompt, level
-            progression with freshly randomized grids, three distinct power-ups, particle effects,
-            and a persistent top-10 high score table.
+            progression with hand-designed layouts loaded from files (falling back to randomized
+            grids), five distinct power-ups, retro sound effects, particle effects, and a persistent
+            top-10 high score table.
         </p>
     </div>
 
@@ -81,8 +82,10 @@
             <li><strong>Retro CRT intro screen:</strong> falling pixel-art title bricks, rainbow shimmer, starfield background, bouncing ball, decorative bottom bricks</li>
             <li><strong>Name input screen</strong> with blinking cursor and CRT scanline overlay</li>
             <li><strong>Destructible tile grid:</strong> 10x5 layout with per-tile HP system (up to 3 HP), beveled rendering with highlight/shadow edges and visible crack lines as tiles take damage</li>
-            <li><strong>Level progression:</strong> clearing all tiles advances to the next level with a freshly randomized grid</li>
-            <li><strong>3 power-ups</strong> with 25% drop chance: wider paddle, slow ball, and extra life — each with a 600-frame duration timer and on-screen progress bar</li>
+            <li><strong>Custom levels:</strong> hand-designed layouts loaded from <code>levels/NN.txt</code> files at runtime, with a fallback to randomized grids once they run out</li>
+            <li><strong>5 power-ups</strong> with 25% drop chance: wider paddle, slow ball, extra life, multiball (spawns extra balls), and fireball (ball plows through tiles) — timed effects shown as on-screen progress bars</li>
+            <li><strong>Retro sound effects:</strong> procedurally generated WAV samples for paddle/wall bounces, tile hits, destruction, power-up pickup, life loss, level clear, and game over (runs silently if audio is unavailable)</li>
+            <li><strong>Pause:</strong> freeze the action with a dimmed overlay (P key)</li>
             <li><strong>Particle explosion system:</strong> per-tile particles with gravity simulation, color variation, and fade effects</li>
             <li><strong>Ball motion trail:</strong> fading tail rendered behind the ball for visual polish</li>
             <li><strong>Screen shake</strong> triggered on tile destruction for impact</li>
