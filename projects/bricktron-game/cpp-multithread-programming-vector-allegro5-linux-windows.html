@@ -12,26 +12,26 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arkanoid Game — Artur Kos</title>
+    <title>Bricktron — Artur Kos</title>
     <meta name="description"
-        content="Classic Arkanoid arcade game built with C++ and Allegro 5. Features a 10x5 destructible tile grid with HP system, 5 power-ups (including multiball and fireball), retro sound effects, custom file-based levels, pause, particle explosions, ball motion trail, screen shake effects, and cross-platform support for Linux and Windows.">
+        content="Classic brick-breaker arcade game built with C++ and Allegro 5. Features a 10x5 destructible tile grid with HP system, 5 power-ups (including multiball and fireball), retro sound effects, custom file-based levels, pause, particle explosions, ball motion trail, screen shake effects, and cross-platform support for Linux and Windows.">
     <meta name="keywords"
-        content="Arkanoid, C++, Allegro 5, game development, particle effects, power-ups, multiball, fireball, sound effects, breakout, arcade game, Linux, Windows, CMake, cross-platform">
+        content="Bricktron, C++, Allegro 5, game development, particle effects, power-ups, multiball, fireball, sound effects, breakout, arcade game, Linux, Windows, CMake, cross-platform">
     <meta name="author" content="Artur Kos">
-    <link rel="canonical" href="https://arturkos.github.io/projects/arkanoid-game/cpp-multithread-programming-vector-allegro5-linux-windows.html">
+    <link rel="canonical" href="https://arturkos.github.io/projects/bricktron-game/cpp-multithread-programming-vector-allegro5-linux-windows.html">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Arkanoid Game — Artur Kos">
-    <meta property="og:description" content="Classic Arkanoid arcade game built with C++ and Allegro 5. Destructible tiles with HP system, 5 power-ups (multiball, fireball), retro sound effects, custom file-based levels, particle explosions, ball trail, and screen shake. Cross-platform for Linux and Windows.">
-    <meta property="og:url" content="https://arturkos.github.io/projects/arkanoid-game/cpp-multithread-programming-vector-allegro5-linux-windows.html">
+    <meta property="og:title" content="Bricktron — Artur Kos">
+    <meta property="og:description" content="Classic brick-breaker arcade game built with C++ and Allegro 5. Destructible tiles with HP system, 5 power-ups (multiball, fireball), retro sound effects, custom file-based levels, particle explosions, ball trail, and screen shake. Cross-platform for Linux and Windows.">
+    <meta property="og:url" content="https://arturkos.github.io/projects/bricktron-game/cpp-multithread-programming-vector-allegro5-linux-windows.html">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Arkanoid Game — Artur Kos">
-    <meta name="twitter:description" content="Classic Arkanoid arcade game built with C++ and Allegro 5. Destructible tiles with HP system, 5 power-ups (multiball, fireball), retro sound effects, custom file-based levels, particle explosions, ball trail, and screen shake. Cross-platform for Linux and Windows.">
+    <meta name="twitter:title" content="Bricktron — Artur Kos">
+    <meta name="twitter:description" content="Classic brick-breaker arcade game built with C++ and Allegro 5. Destructible tiles with HP system, 5 power-ups (multiball, fireball), retro sound effects, custom file-based levels, particle explosions, ball trail, and screen shake. Cross-platform for Linux and Windows.">
     <link rel="stylesheet" href="../../css/styles.css">
 </head>
 
 <body>
     <div class="text-container">
-        <h1>Arkanoid Game</h1>
+        <h1>Bricktron</h1>
     </div>
 
     <div class="text-container">
@@ -58,7 +58,7 @@
             grabs falling power-ups.</p>
     </div>
     <div class="image-container">
-        <img src="img/demo.gif" alt="Arkanoid attract mode demo: the paddle plays itself and catches power-ups" class="center" loading="lazy">
+        <img src="img/demo.gif" alt="Bricktron attract mode demo: the paddle plays itself and catches power-ups" class="center" loading="lazy">
     </div>
 
     <div class="text-container">
@@ -66,16 +66,16 @@
         <h2>Screenshots</h2>
     </div>
     <div class="image-container">
-        <img src="img/intro.png" alt="Arkanoid intro screen with pixel-art title" class="center" loading="lazy">
-        <img src="img/gameplay.png" alt="Arkanoid gameplay with colorful tile grid and space background" class="center" loading="lazy">
-        <img src="img/highscores.png" alt="Arkanoid game over screen with high score table" class="center" loading="lazy">
-        <img src="img/particles.png" alt="Arkanoid particle explosion effects during gameplay" class="center" loading="lazy">
+        <img src="img/intro.png" alt="Bricktron intro screen with pixel-art title" class="center" loading="lazy">
+        <img src="img/gameplay.png" alt="Bricktron gameplay with colorful tile grid and space background" class="center" loading="lazy">
+        <img src="img/highscores.png" alt="Bricktron game over screen with high score table" class="center" loading="lazy">
+        <img src="img/particles.png" alt="Bricktron particle explosion effects during gameplay" class="center" loading="lazy">
     </div>
 
     <div class="text-container">
         <div class="text-overlay"></div>
         <p>
-            A polished C++ implementation of the classic Arkanoid arcade game, built with
+            A polished C++ implementation of the classic brick-breaker arcade game, built with
             <strong>Allegro 5</strong> for graphics, audio, and input handling. The player controls
             a paddle to deflect a ball into a <strong>10x5 grid of destructible tiles</strong>, each
             with an HP system requiring up to 3 hits to destroy. The game wraps the gameplay in a
@@ -123,18 +123,18 @@
         <div class="text-overlay"></div>
         <h2>Download &amp; Play (Linux)</h2>
         <p>A ready-to-run <strong>Flatpak bundle</strong> is published on GitHub. No build required —
-            grab <a href="https://github.com/ArturKos/arkanoid/releases/latest" target="_blank">the latest release</a> and install:</p>
+            grab <a href="https://github.com/ArturKos/bricktron/releases/latest" target="_blank">the latest release</a> and install:</p>
         <pre style="text-align: left; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; overflow-x: auto; color: #8ec8ff;">flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install --user arkanoid.flatpak
-flatpak run io.github.arturkos.Arkanoid</pre>
+flatpak install --user bricktron.flatpak
+flatpak run io.github.arturkos.Bricktron</pre>
     </div>
 
     <div class="text-container">
         <div class="text-overlay"></div>
         <h2>Build Instructions</h2>
         <p>Requirements: CMake (3.2+), Allegro 5</p>
-        <pre style="text-align: left; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; overflow-x: auto; color: #8ec8ff;">git clone https://github.com/ArturKos/arkanoid.git
-cd arkanoid
+        <pre style="text-align: left; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; overflow-x: auto; color: #8ec8ff;">git clone https://github.com/ArturKos/bricktron.git
+cd bricktron
 mkdir build && cd build
 cmake ..
 make</pre>
@@ -142,7 +142,7 @@ make</pre>
 
     <div class="text-container">
         <div class="text-overlay"></div>
-        <p>Check out the project on GitHub: <a href="https://github.com/ArturKos/arkanoid" target="_blank">Arkanoid Game on GitHub</a></p>
+        <p>Check out the project on GitHub: <a href="https://github.com/ArturKos/bricktron" target="_blank">Bricktron on GitHub</a></p>
         <a href="../../index.html" class="back-to-portfolio">Back to Portfolio</a>
     </div>
 <script src="../../js/lightbox.js"></script>
